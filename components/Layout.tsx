@@ -23,7 +23,7 @@ const Layout: React.FunctionComponent<Props> = ({
   const router = useRouter()
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto" style={{maxWidth: 1000}}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -46,7 +46,7 @@ const Layout: React.FunctionComponent<Props> = ({
               navItem.path === router.pathname ? 'border-b border-white' : 'text-gray-600'
             return (
               <Link href={navItem.path}>
-                <a className={`ml-5 flex hover:text-white items-center font-medium ${classes}`}>
+                <a className={`ml-5 flex text-sm hover:text-white items-center font-medium ${classes}`}>
                   {navItem.title}
                 </a>
               </Link>
