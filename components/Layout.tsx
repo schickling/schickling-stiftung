@@ -23,7 +23,7 @@ const Layout: React.FunctionComponent<Props> = ({
   const router = useRouter()
 
   return (
-    <div className="container mx-auto" style={{maxWidth: 1000}}>
+    <div className="container mx-auto" style={{ maxWidth: 1048, padding: '0 24px' }}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -31,22 +31,24 @@ const Layout: React.FunctionComponent<Props> = ({
       </Head>
       <header className="border-b border-gray-700 flex justify-between items-center mt-3 mb-5">
         <Link href="/">
-          <a className='py-3'>
-            <div className="text-lg font-medium">
-              Erich Schickling Stiftung
-            </div>
+          <a className="py-3">
+            <div className="text-lg font-medium">Erich Schickling Stiftung</div>
             <div className="text-sm text-gray-600">
               Begegnungsstätte von Kunst und Religion
             </div>
           </a>
         </Link>
-        <nav className="flex self-stretch" style={{ marginBottom: -1 }}>
+        <nav className="self-stretch hidden lg:flex" style={{ marginBottom: -1 }}>
           {navItems.map((navItem) => {
             const classes =
-              navItem.path === router.pathname ? 'border-b border-white' : 'text-gray-600'
+              navItem.path === router.pathname
+                ? 'border-b border-white'
+                : 'text-gray-600'
             return (
               <Link href={navItem.path}>
-                <a className={`ml-5 flex text-sm hover:text-white items-center font-medium ${classes}`}>
+                <a
+                  className={`ml-5 flex text-sm hover:text-white items-center font-medium ${classes}`}
+                >
                   {navItem.title}
                 </a>
               </Link>
