@@ -32,7 +32,7 @@ const Layout: React.FunctionComponent<Props> = ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <header className="border-b border-gray-700 flex justify-between items-center mt-3 mb-5">
+      <header className="border-b border-gray-700 flex justify-between items-center mt-3">
         <Link href="/">
           <a className="py-3">
             <div className="text-lg font-medium">Erich Schickling Stiftung</div>
@@ -71,7 +71,7 @@ const Layout: React.FunctionComponent<Props> = ({
 
 export default Layout
 
-function isActivePath(currentPath: string, checkPath: string): boolean {
+export function isActivePath(currentPath: string, checkPath: string): boolean {
   if (checkPath === '/') {
     return checkPath === currentPath
   }

@@ -1,15 +1,38 @@
 import { GetStaticPaths } from 'next'
-import { Gql as graphql } from '../../utils/graphql/graphql-zeus'
-import Layout from '../../components/Layout'
-import fetch from 'node-fetch'
-import { escapeAndParamCase } from '../../utils/utils'
+import { Gql as graphql } from '../../../utils/graphql/graphql-zeus'
+import Layout, { isActivePath } from '../../../components/Layout'
+import { escapeAndParamCase } from '../../../utils/utils'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
-global.fetch = fetch
+const subNavItems = [
+  { path: '/werke/bilder', title: 'Bilder' },
+  { path: '/werke/oeffentliche-werke', title: 'Öffentliche Werke' },
+  { path: '/werke/architektur', title: 'Architektur' },
+]
 
 const Post = (props: GetProps<typeof getStaticProps>) => {
+  const router = useRouter()
   const isVertical = props.properties.format === 'Vertikal'
+
   return (
     <Layout title={props.properties.name}>
+      <nav className="self-stretch hidden lg:flex mb-4" style={{ marginTop: -1 }}>
+        {subNavItems.map((navItem) => {
+          const classes = isActivePath(router.pathname, navItem.path)
+            ? 'border-t border-white'
+            : 'text-gray-600'
+          return (
+            <Link href={navItem.path} key={navItem.path}>
+              <a
+                className={`mr-5 py-4 flex text-sm hover:text-white items-center font-medium ${classes}`}
+              >
+                {navItem.title}
+              </a>
+            </Link>
+          )
+        })}
+      </nav>
       <div className={isVertical ? 'flex' : ''}>
         <img
           src={`${props.properties.image}?width=${isVertical ? 600 : 1000}`}
@@ -23,8 +46,7 @@ const Post = (props: GetProps<typeof getStaticProps>) => {
               {props.properties.technique}
             </div>
             <div>
-              <span className="font-medium">Maße</span>:{' '}
-              {props.properties.size}
+              <span className="font-medium">Maße</span>: {props.properties.size}
             </div>
             <div>
               <span className="font-medium">Datum</span>:{' '}
