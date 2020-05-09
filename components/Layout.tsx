@@ -62,8 +62,7 @@ const Layout: React.FunctionComponent<Props> = ({
         </nav>
       </header>
       {children}
-      <footer className="mt-8">
-        <hr />
+      <footer className="mt-8 text-gray-700 border-t border-gray-700 py-3 font-medium">
         <span>Erich Schickling Stiftung © 1998 - 2020</span>
       </footer>
     </div>

@@ -16,7 +16,7 @@ const Post = (props: GetProps<typeof getStaticProps>) => {
           className="object-contain self-start"
         />
         <div className={isVertical ? 'ml-8' : 'mt-8'}>
-          <div className="text-2xl font-normal">{props.properties.name}</div>
+          <div className="text-2xl font-medium">{props.properties.name}</div>
           <div className="my-4">
             <div>
               <span className="font-semibold">Technik</span>:{' '}
@@ -33,7 +33,7 @@ const Post = (props: GetProps<typeof getStaticProps>) => {
           </div>
           <div>
             {props.textContent.map((t) => (
-              <div key={t} className="mt-2">
+              <div key={t} className="mt-2 text-sm leading-6">
                 {t}
               </div>
             ))}
