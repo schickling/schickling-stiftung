@@ -7,3 +7,9 @@ type GetProps<T extends (...args: any) => any> = ThenArg<
 > extends { props: infer U }
   ? U
   : never
+
+  declare module NodeJS  {
+    interface Global {
+        fetch: any
+    }
+}

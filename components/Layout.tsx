@@ -45,7 +45,7 @@ const Layout: React.FunctionComponent<Props> = ({
                 ? 'border-b border-white'
                 : 'text-gray-600'
             return (
-              <Link href={navItem.path}>
+              <Link href={navItem.path} key={navItem.path}>
                 <a
                   className={`ml-5 flex text-sm hover:text-white items-center font-medium ${classes}`}
                 >
@@ -57,7 +57,7 @@ const Layout: React.FunctionComponent<Props> = ({
         </nav>
       </header>
       {children}
-      <footer>
+      <footer className="mt-8">
         <hr />
         <span>Erich Schickling Stiftung © 1998 - 2020</span>
       </footer>
