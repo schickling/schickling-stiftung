@@ -47,7 +47,6 @@ const Post = (props: GetProps<typeof getStaticProps>) => {
 export default Post
 
 export const getStaticProps = async (context: any) => {
-  console.log(context)
   const response = await graphql.query({
     collection: [
       {
@@ -116,8 +115,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = response.collection.collectionView.items.map((i) => ({
     params: { slug: escapeAndParamCase(i.properties.name) },
   }))
-
-  console.log({ paths })
 
   return { paths, fallback: false }
 }

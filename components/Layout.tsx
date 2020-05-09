@@ -23,7 +23,10 @@ const Layout: React.FunctionComponent<Props> = ({
   const router = useRouter()
 
   return (
-    <div className="container mx-auto" style={{ maxWidth: 1048, padding: '0 24px' }}>
+    <div
+      className="container mx-auto"
+      style={{ maxWidth: 1048, padding: '0 24px' }}
+    >
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -38,12 +41,14 @@ const Layout: React.FunctionComponent<Props> = ({
             </div>
           </a>
         </Link>
-        <nav className="self-stretch hidden lg:flex" style={{ marginBottom: -1 }}>
+        <nav
+          className="self-stretch hidden lg:flex"
+          style={{ marginBottom: -1 }}
+        >
           {navItems.map((navItem) => {
-            const classes =
-              navItem.path === router.pathname
-                ? 'border-b border-white'
-                : 'text-gray-600'
+            const classes = isActivePath(router.pathname, navItem.path)
+              ? 'border-b border-white'
+              : 'text-gray-600'
             return (
               <Link href={navItem.path} key={navItem.path}>
                 <a
@@ -66,3 +71,11 @@ const Layout: React.FunctionComponent<Props> = ({
 }
 
 export default Layout
+
+function isActivePath(currentPath: string, checkPath: string): boolean {
+  if (checkPath === '/') {
+    return checkPath === currentPath
+  }
+
+  return currentPath.startsWith(checkPath)
+}
