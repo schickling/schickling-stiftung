@@ -19,21 +19,21 @@ const Post = (props: GetProps<typeof getStaticProps>) => {
           <div className="text-2xl font-medium">{props.properties.name}</div>
           <div className="my-4">
             <div>
-              <span className="font-semibold">Technik</span>:{' '}
+              <span className="font-medium">Technik</span>:{' '}
               {props.properties.technique}
             </div>
             <div>
-              <span className="font-semibold">Maße</span>:{' '}
+              <span className="font-medium">Maße</span>:{' '}
               {props.properties.size}
             </div>
             <div>
-              <span className="font-semibold">Datum</span>:{' '}
+              <span className="font-medium">Datum</span>:{' '}
               {props.properties.date}
             </div>
           </div>
           <div>
             {props.textContent.map((t) => (
-              <div key={t} className="mt-2 text-sm leading-6">
+              <div key={t} className="mt-2 text-sm leading-relaxed">
                 {t}
               </div>
             ))}
