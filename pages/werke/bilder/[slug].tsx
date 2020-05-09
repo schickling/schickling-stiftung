@@ -38,7 +38,7 @@ const Post = (props: GetProps<typeof getStaticProps>) => {
           src={`${props.properties.image}?width=${isVertical ? 600 : 1000}`}
           className="object-contain self-start"
         />
-        <div className={isVertical ? 'ml-8' : 'mt-8'}>
+        <div className={isVertical ? 'ml-12' : 'mt-8'}>
           <div className="text-2xl font-medium">{props.properties.name}</div>
           <div className="my-4">
             <div>
