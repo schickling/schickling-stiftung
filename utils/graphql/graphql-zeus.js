@@ -346,4 +346,4 @@ export const Selectors = {
 };
     
 
-export const Gql = Chain('http://c0ee171b.ngrok.io')
+export const Gql = Chain('http://schickling.ngrok.io')
