@@ -17,6 +17,10 @@ collectionView?: [{	collectionViewName:string},ValueTypes["CollectionView"]]
 	textContent?:true
 		__typename?: true
 }>;
+	["CollectionItemFilterInput"]: {
+	key:string,
+	value:string
+};
 	["CollectionItemProperties"]: AliasType<{		["...on CollectionItemProperties_WERKE_BILDER"] : ValueTypes["CollectionItemProperties_WERKE_BILDER"]
 		__typename?: true
 }>;
@@ -24,6 +28,7 @@ collectionView?: [{	collectionViewName:string},ValueTypes["CollectionView"]]
 	image?:true,
 	werkverzeichnis?:true,
 	size?:true,
+	visible?:true,
 	technique?:true,
 	date?:true,
 	format?:true,
@@ -32,7 +37,7 @@ collectionView?: [{	collectionViewName:string},ValueTypes["CollectionView"]]
 }>;
 	["CollectionView"]: AliasType<{
 	name?:true,
-	items?:ValueTypes["CollectionItem"]
+items?: [{	filter?:ValueTypes["CollectionItemFilterInput"][]},ValueTypes["CollectionItem"]]
 		__typename?: true
 }>;
 	["JSON"]:unknown;
@@ -58,12 +63,17 @@ export type PartialObjects = {
 			blocks?:PartialObjects["JSON"],
 			textContent?:string[]
 	},
+	["CollectionItemFilterInput"]: {
+	key:string,
+	value:string
+},
 	["CollectionItemProperties"]: PartialObjects["CollectionItemProperties_WERKE_BILDER"],
 	["CollectionItemProperties_WERKE_BILDER"]: {
 		__typename?: "CollectionItemProperties_WERKE_BILDER";
 			image?:string,
 			werkverzeichnis?:PartialObjects["JSON"],
 			size?:PartialObjects["JSON"],
+			visible?:PartialObjects["JSON"],
 			technique?:PartialObjects["JSON"],
 			date?:PartialObjects["JSON"],
 			format?:PartialObjects["JSON"],
@@ -98,6 +108,11 @@ export type CollectionItem = {
 	textContent:string[]
 }
 
+export type CollectionItemFilterInput = {
+		key:string,
+	value:string
+}
+
 export type CollectionItemProperties = {
 	__union:CollectionItemProperties_WERKE_BILDER;
 	__resolve:{
@@ -110,6 +125,7 @@ export type CollectionItemProperties_WERKE_BILDER = {
 	image?:string,
 	werkverzeichnis?:JSON,
 	size?:JSON,
+	visible?:JSON,
 	technique?:JSON,
 	date?:JSON,
 	format?:JSON,

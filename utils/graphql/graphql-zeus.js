@@ -12,6 +12,30 @@ export const AllTypesProps = {
 			}
 		}
 	},
+	CollectionItemFilterInput:{
+		key:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		value:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	CollectionView:{
+		items:{
+			filter:{
+				type:"CollectionItemFilterInput",
+				array:true,
+				arrayRequired:false,
+				required:true
+			}
+		}
+	},
 	JSON: "String",
 	Query:{
 		collection:{
@@ -43,6 +67,7 @@ export const ReturnTypes = {
 		image:"String",
 		werkverzeichnis:"JSON",
 		size:"JSON",
+		visible:"JSON",
 		technique:"JSON",
 		date:"JSON",
 		format:"JSON",
