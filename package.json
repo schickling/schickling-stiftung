@@ -5,28 +5,25 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "zeus": "zeus http://schickling.ngrok.io ./utils/graphql",
+    "zeus": "zeus http://schickling.ngrok.io ./utils/graphql --ts --node",
     "type-check": "tsc"
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.7",
     "autoprefixer": "^9.7.6",
     "change-case": "^4.1.1",
-    "isomorphic-unfetch": "3.0.0",
     "next": "latest",
-    "node-fetch": "^2.6.0",
     "notionapi-agent": "^1.2.0",
     "postcss-import": "^12.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "tailwindcss": "^1.4.4"
+    "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
+    "@types/node": "^13.13.5",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
     "graphql-zeus": "^2.6.4",
-    "typescript": "3.7.3"
+    "typescript": "3.8.3"
   },
   "license": "ISC"
 }

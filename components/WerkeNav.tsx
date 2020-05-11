@@ -4,8 +4,8 @@ import { isActivePath } from './Layout'
 
 const subNavItems = [
   { path: '/werke/bilder', title: 'Bilder' },
-  { path: '/werke/oeffentliche-werke', title: 'Öffentliche Werke' },
-  { path: '/werke/architektur', title: 'Architektur' },
+  // { path: '/werke/oeffentliche-werke', title: 'Öffentliche Werke' },
+  // { path: '/werke/architektur', title: 'Architektur' },
 ]
 
 const WerkeNav: React.FunctionComponent<{}> = () => {

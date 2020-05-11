@@ -16,10 +16,7 @@ const navItems = [
   { path: '/kontakt', title: 'Kontakt' },
 ]
 
-const Layout: React.FunctionComponent<Props> = ({
-  children,
-  title = 'Schickling Stiftung',
-}) => {
+const Layout: React.FunctionComponent<Props> = ({ children, title }) => {
   const router = useRouter()
 
   return (
@@ -28,7 +25,7 @@ const Layout: React.FunctionComponent<Props> = ({
       style={{ maxWidth: 1048, padding: '0 24px' }}
     >
       <Head>
-        <title>{title}</title>
+        <title>{`${title} - Schickling Stiftung`}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>

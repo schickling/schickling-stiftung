@@ -63,8 +63,8 @@ export const getStaticProps = async (context: any) => {
                 properties: {
                   '...on CollectionItemProperties_WERKE_BILDER': {
                     name: true,
-                    // image: [{ width: 600 }, true],
-                    image: true,
+                    image: [{ width: 600 }, true],
+                    // image: true,
                     technique: true,
                     size: true,
                     date: true,
