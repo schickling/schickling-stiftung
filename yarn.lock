@@ -2903,10 +2903,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
-graphql-zeus@^2.6.4:
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/graphql-zeus/-/graphql-zeus-2.6.4.tgz#d8c1842f9199d880adc7b8933a4ef18e2abd308f"
-  integrity sha512-2Yh/DDTqWg+0diwomV8bQ09UJyVCQjNKxbSQqOCnlB6axnOsSVwA4Es3O0IJhvGKA5+oX38LvbxxdQVVMh8FEQ==
+graphql-zeus@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/graphql-zeus/-/graphql-zeus-2.6.5.tgz#08bd259e4716f236e77ee973047b53316ac4c90b"
+  integrity sha512-y5MG4yxbCEs8os2tPqrA+7p3K0Fg9WZSh+SO4k8qj3AGekkRdGld6lx8vTYelSgXzUje7QMIkjinydGcQxlXlg==
   dependencies:
     cross-fetch "^3.0.4"
     graphql "^14.0.2"

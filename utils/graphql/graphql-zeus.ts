@@ -217,6 +217,9 @@ export const ReturnTypes: Record<string,any> = {
 		blocks:"JSON",
 		textContent:"String"
 	},
+	CollectionItemProperties:{
+		"...on CollectionItemProperties_WERKE_BILDER":"CollectionItemProperties_WERKE_BILDER"
+	},
 	CollectionItemProperties_WERKE_BILDER:{
 		image:"String",
 		werkverzeichnis:"JSON",
