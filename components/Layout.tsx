@@ -2,6 +2,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { FC } from 'react'
 
 type Props = {
   title?: string
@@ -16,7 +17,7 @@ const navItems = [
   { path: '/kontakt', title: 'Kontakt' },
 ]
 
-const Layout: React.FunctionComponent<Props> = ({ children, title }) => {
+const Layout: FC<Props> = ({ children, title }) => {
   const router = useRouter()
 
   return (
@@ -29,7 +30,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, title }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <header className="border-b border-gray-700 flex justify-between items-center mt-3">
+      <header className="flex items-center justify-between mt-3 border-b border-gray-700">
         <Link href="/">
           <a className="py-3">
             <div className="text-lg font-medium">Erich Schickling Stiftung</div>
@@ -59,7 +60,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, title }) => {
         </nav>
       </header>
       {children}
-      <footer className="mt-8 text-gray-700 border-t border-gray-700 py-3 font-medium">
+      <footer className="py-3 mt-8 font-medium text-gray-700 border-t border-gray-700">
         <span>Erich Schickling Stiftung © 1998 - 2020</span>
       </footer>
     </div>
