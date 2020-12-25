@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "zeus": "zeus http://schickling.ngrok.io ./utils/graphql --ts --node",
+    "fetch": "sourcebit fetch",
     "type-check": "tsc"
   },
   "dependencies": {
