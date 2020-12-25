@@ -1,7 +1,8 @@
 stackbitVersion: ~0.3.0
 ssgName: nextjs
 ssgVersion: 9.4.4
-buildCommand: npm run build
+buildCommand: yarn build
+installCommand: yarn
 publishDir: out
 staticDir: public
 uploadDir: images
