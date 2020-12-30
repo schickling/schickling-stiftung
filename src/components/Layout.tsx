@@ -26,7 +26,7 @@ const Layout: FC<Props> = ({ children, title }) => {
         <span>Erich Schickling Stiftung © 1998 - 2020</span>
       </footer>
     </div>
-  )
+  );
 }
 
 export default Layout
