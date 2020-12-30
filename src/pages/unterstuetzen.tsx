@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import Layout, { Container } from '../components/Layout'
 
-const UnterstuetzenPage = () => (
+const UnterstuetzenPage: FC = () => (
   <Layout title="Unterstützen">
     <div className="py-24 text-gray-900 bg-white">
       <Container>
@@ -55,7 +56,7 @@ const UnterstuetzenPage = () => (
           Förderbeitrag steht in Ihrem Ermessen. Gerne schicken wir Ihnen unser
           Beitrittsformular zu.
         </div>
-        <div className="border border-gray-300 pt-9 pr-9 py-9 px-9 ">
+        <div className="border border-gray-300 rounded pt-9 pr-9 py-9 px-9">
           <div>
             <div className="mb-4 text-2xl font-bold">
               Anfrage Beitrittsformular
@@ -74,10 +75,102 @@ const UnterstuetzenPage = () => (
             </div>
           </div>
         </div>
-        <div className="text-2xl">Jede Unterstützung ist willkommen!</div>
+        <div className="w-full h-px my-5 bg-gray-200" />
+        <div className="mt-5 text-2xl font-bold">
+          Jede Unterstützung ist willkommen!
+        </div>
+        <div className="mt-5">
+          Gemeinsam wird die Erich-Schickling-Stiftung zu einem Ort von Kunst,
+          Musik, Natur und Begegnung.
+        </div>
+        <div className="flex mb-5">
+          <FeatureBox
+            imageUrl="https://i.imgur.com/MUk0BBh.png"
+            title="Pflanzen und Bäume"
+            description="Das Gelände der Erich-Schickling-Stiftung ist Heimat von
+                  zahlreichen Pflanzen, Blumen und Bäumen."
+          />
+          <FeatureBox
+            imageUrl="https://i.imgur.com/8lzq0Fk.png"
+            title="Musik schenken"
+            description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung
+          freuen wir uns über Beiträge und Anregungen."
+          />
+        </div>
+        <div className="flex mb-5">
+          <FeatureBox
+            imageUrl="https://i.imgur.com/8lzq0Fk.png"
+            title="Musik schenken"
+            description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung
+          freuen wir uns über Beiträge und Anregungen."
+          />
+          <FeatureBox
+            imageUrl="https://i.imgur.com/8lzq0Fk.png"
+            title="Musik schenken"
+            description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung
+          freuen wir uns über Beiträge und Anregungen."
+          />
+        </div>
+        {/* <div>
+          <div className="flex">
+            <div className="mr-16">
+              <div className="flex mt-10">
+                <img
+                  src="https://i.imgur.com/5p0Egm9.png"
+                  className="w-11 h-11"
+                />
+                <div className="ml-5">
+                  <div className="font-bold text-gray-600">
+                    Für die Stiftung spenden
+                  </div>
+                  <div className="mt-1 font-normal text-gray-600">
+                    Unterstützen Sie die Stiftung mit einer monetären Spende und
+                    tragen Sie somit zum Erhalt der Stiftungsgebäude und den
+                    öffentlichen Angeboten bei.{' '}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div className="flex mt-10">
+                  <img
+                    src="https://i.imgur.com/se8R7f2.png"
+                    className="w-11 h-11"
+                  />
+                  <div className="ml-5">
+                    <div className="font-bold text-gray-600">
+                      Weitererzählen
+                    </div>
+                    <div className="mt-1 font-normal text-gray-600">
+                      Begeisterung steckt an! Laden Sie gerne auch Familie und
+                      Freundeskreis in die Erich-Schicklung-Stiftung ein.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
       </Container>
     </div>
   </Layout>
 )
 
 export default UnterstuetzenPage
+
+const FeatureBox: FC<{
+  imageUrl: string
+  title: string
+  description: string
+}> = ({ imageUrl, title, description }) => (
+  <div className="w-1/2 mr-16">
+    <div className="flex mt-10">
+      <img src={imageUrl} className="w-11 h-11" />
+      <div className="ml-5">
+        <div className="font-bold text-gray-600">{title}</div>
+        <div className="mt-1 font-normal text-gray-600">{description}</div>
+      </div>
+    </div>
+  </div>
+)
