@@ -99,16 +99,17 @@ const UnterstuetzenPage: FC = () => (
         </div>
         <div className="flex mb-5">
           <FeatureBox
-            imageUrl="https://i.imgur.com/8lzq0Fk.png"
-            title="Musik schenken"
-            description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung
-          freuen wir uns über Beiträge und Anregungen."
+            imageUrl="https://i.imgur.com/5p0Egm9.png"
+            title="Für die Stiftung spenden"
+            description=" Unterstützen Sie die Stiftung mit einer monetären Spende und
+            tragen Sie somit zum Erhalt der Stiftungsgebäude und den
+            öffentlichen Angeboten bei."
           />
           <FeatureBox
-            imageUrl="https://i.imgur.com/8lzq0Fk.png"
-            title="Musik schenken"
-            description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung
-          freuen wir uns über Beiträge und Anregungen."
+            imageUrl="https://i.imgur.com/se8R7f2.png"
+            title="Weitererzählen"
+            description="Begeisterung steckt an! Laden Sie gerne auch Familie und
+            Freundeskreis in die Erich-Schicklung-Stiftung ein."
           />
         </div>
         {/* <div>
