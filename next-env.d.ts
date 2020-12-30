@@ -8,8 +8,14 @@ type GetProps<T extends (...args: any) => any> = ThenArg<
   ? U
   : never
 
-  declare module NodeJS  {
-    interface Global {
-        fetch: any
-    }
+declare module NodeJS {
+  interface Global {
+    fetch: any
+  }
+}
+
+declare module '@ui-devtools/tailwind' {
+  // import { Socket as PhoenixSocket } from 'phoenix'
+  // …
+  export const Devtools = React.FC
 }
