@@ -8,6 +8,7 @@
     "fetch": "sourcebit fetch",
     "storybook": "start-storybook",
     "build:storybook": "build-storybook",
+    "postinstall": "yarn build:css",
     "build:css": "tailwindcss build ./src/css/index.css -o ./node_modules/.css/tailwind.css",
     "dev:ui": "devtools-server -c tailwind.config.js",
     "type-check": "tsc"
@@ -35,7 +36,7 @@
     "@types/node": "^14.14.16",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@ui-devtools/tailwind": "ui-devtools/tailwind",
+    "@ui-devtools/tailwind": "schickling/tailwind#main",
     "autoprefixer": "^10.1.0",
     "postcss": "^8.2.1",
     "storybook-addon-next-router": "^2.0.3",
