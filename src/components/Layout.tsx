@@ -30,7 +30,7 @@ const Layout: FC<Props> = ({ children, title }) => {
   )
 }
 
-const Container: FC = ({ children }) => (
+export const Container: FC = ({ children }) => (
   <div
     className="container mx-auto"
     style={{ maxWidth: 1048, padding: '0 24px' }}
