@@ -66,7 +66,7 @@ const Page: FC = () => (
               postalisch zu.
             </div>
             <div className="flex flex-col items-start md:flex-row md:items-center">
-              <div className="px-5 py-3 mb-4 mr-0 text-lg font-medium text-white bg-black md:mb-0 md:mr-5">
+              <div className="px-5 py-3 mb-4 mr-0 text-lg font-medium text-white bg-black rounded md:mb-0 md:mr-5">
                 Per Email anfragen
               </div>
               <div className="font-bold text-gray-600">
