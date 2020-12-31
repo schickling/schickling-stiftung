@@ -3,6 +3,12 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+@layer utilities {
+  .clickarea {
+    @apply p-3 -m-3;
+  }
+}
+
 body {
   background: #000;
   color: #fff;

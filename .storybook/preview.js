@@ -1,5 +1,7 @@
 import { withNextRouter } from 'storybook-addon-next-router'
 import { addDecorator } from '@storybook/react'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+
 import '../node_modules/.css/tailwind.css'
 import './global.css'
 
@@ -12,6 +14,13 @@ addDecorator(
   }),
 )
 
+/** @type import('@storybook/addons').Parameters */
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  viewport: {
+    viewports: {
+      ...INITIAL_VIEWPORTS,
+    },
+  },
+  layout: 'fullscreen',
 }
