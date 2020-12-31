@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Layout, { Container } from '../components/Layout'
 
-const UnterstuetzenPage: FC = () => (
+const Page: FC = () => (
   <Layout title="Unterstützen">
     <div className="py-24 text-gray-900 bg-white">
       <Container>
@@ -115,7 +115,7 @@ const UnterstuetzenPage: FC = () => (
   </Layout>
 )
 
-export default UnterstuetzenPage
+export default Page
 
 const FeatureBox: FC<{
   imageUrl: string
