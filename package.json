@@ -2,15 +2,16 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "run-p dev:next dev:ui-devtools dev:storybook",
+    "dev:next": "next",
+    "dev:ui-devtools": "devtools-server -c tailwind.config.js",
+    "dev:storybook": "start-storybook --ci",
     "build": "next build && next export",
     "start": "next start",
     "fetch": "sourcebit fetch",
-    "storybook": "start-storybook",
     "build:storybook": "build-storybook",
     "postinstall": "yarn build:css",
     "build:css": "tailwindcss build ./src/css/index.css -o ./node_modules/.css/tailwind.css",
-    "dev:ui": "devtools-server -c tailwind.config.js",
     "type-check": "tsc"
   },
   "dependencies": {
@@ -38,6 +39,7 @@
     "@types/react-dom": "^17.0.0",
     "@ui-devtools/tailwind": "schickling/tailwind#main",
     "autoprefixer": "^10.1.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.2.1",
     "storybook-addon-next-router": "^2.0.3",
     "typescript": "4.1.3"

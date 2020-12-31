@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react'
 import React from 'react'
-import { Devtools } from '@ui-devtools/tailwind'
-import Layout from './Layout'
+// import { Devtools } from '@ui-devtools/tailwind'
+import { Layout } from './Layout'
 
 export default {
   title: 'Layout',
@@ -14,19 +14,19 @@ export const Default = () => (
   // </Devtools>
 )
 
-export const Other = () => {
-  const [txt, setTxt] = React.useState('')
+// export const Other = () => {
+//   const [txt, setTxt] = React.useState('')
 
-  return (
-    <div>
-      <h1>hi there 8</h1>
-      <input
-        type="text"
-        placeholder="test"
-        value={txt}
-        onChange={(e) => setTxt(e.target.value)}
-        className="mt-3 bg-black"
-      />
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <h1>hi there 8</h1>
+//       <input
+//         type="text"
+//         placeholder="test"
+//         value={txt}
+//         onChange={(e) => setTxt(e.target.value)}
+//         className="mt-3 bg-black"
+//       />
+//     </div>
+//   )
+// }
