@@ -27,7 +27,7 @@ const Page: FC = () => (
           place="In der Erich Schickling Stiftung"
           date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
         />
-        <div className="w-full h-px my-5 bg-gray-200" />
+        <Spacer />
         <EventBox
           imageUrl="https://i.imgur.com/3rW0XpV.png"
           tag="Konzert in der Erich-Schickling Stiftung"
@@ -39,7 +39,7 @@ const Page: FC = () => (
           place="In der Erich Schickling Stiftung"
           date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
         />
-        <div className="w-full h-px my-5 bg-gray-200" />
+        <Spacer />
         <EventBox
           imageUrl="https://i.imgur.com/XSVguip.png"
           tag="Wöchentliche Führung"
@@ -51,7 +51,7 @@ const Page: FC = () => (
           place="In der Erich Schickling Stiftung"
           date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
         />
-        <div className="w-full h-px my-5 bg-gray-200" />
+        <Spacer />
         <EventBox
           imageUrl="https://i.imgur.com/s95Y7g1.jpeg"
           tag="Wanderausstellung"
@@ -63,11 +63,13 @@ const Page: FC = () => (
           place="In der Erich Schickling Stiftung"
           date="Ab 03.05.2020 bis 01.01.2021"
         />
-        <div className="w-full h-px my-5 bg-gray-200" />
+        <Spacer />
       </Container>
     </div>
   </Layout>
 )
+
+const Spacer: FC = () => <div className="w-full h-px bg-gray-200 my-9" />
 
 const EventBox: FC<{
   imageUrl: string
@@ -77,7 +79,7 @@ const EventBox: FC<{
   place: string
   date: string
 }> = ({ imageUrl, tag, title, description, place, date }) => (
-  <div className="grid grid-cols-1 gap-5 mb-9 lg:grid-cols-35-65">
+  <div className="grid grid-cols-1 gap-5 lg:grid-cols-35-65">
     <img src={imageUrl} />
     <div>
       <div className="inline-flex rounded px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
