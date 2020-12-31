@@ -88,7 +88,6 @@ function isActivePath(currentPath: string, checkPath: string): boolean {
   if (checkPath === '/') {
     return checkPath === currentPath
   }
-  console.log({ checkPath, currentPath })
 
   return currentPath.startsWith(checkPath)
 }
