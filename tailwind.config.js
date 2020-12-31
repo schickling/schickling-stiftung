@@ -1,4 +1,5 @@
 module.exports = {
+  purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
   theme: {
     screens: {
       sm: '640px',
