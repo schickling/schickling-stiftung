@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { FC } from 'react'
 import { SubNavItem, Header } from './Header'
 import { useRouter } from 'next/router'
+import { Footer } from './Footer'
 
 export const Layout: FC<{
   title?: string
@@ -20,12 +21,8 @@ export const Layout: FC<{
         <Header currentPath={router.asPath} subNavItems={subNavItems} />
       </Container>
       {children}
-      <Container>
-        <footer className="py-3 mt-8 font-medium text-gray-700 border-t border-gray-700">
-          <span>
-            Erich Schickling Stiftung © 1998 - {new Date().getFullYear()}
-          </span>
-        </footer>
+      <Container className="py-10 text-gray-300 lg:text-gray-700 lg:py-24 lg:hover:text-gray-300">
+        <Footer />
       </Container>
     </div>
   )

@@ -55,7 +55,7 @@ export const Header: FC<Props> = ({ currentPath, subNavItems }) => {
           className="cursor-pointer lg:hidden clickarea"
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          <Icons.Menu />
+          {showDropdown ? <Icons.X /> : <Icons.Menu />}
         </div>
       </header>
       {showDropdown && (
@@ -85,7 +85,7 @@ const NavDropdown: FC<Props> = ({ currentPath, subNavItems }) => {
               </a>
             </Link>
             {isActive && subNavItems && (
-              <div className="pb-2">
+              <div className="py-2">
                 {subNavItems.map((navItem) => {
                   const classes = isActivePath(currentPath, navItem.path)
                     ? ''
