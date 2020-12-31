@@ -19,7 +19,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        '35-65': '35% 65%'
+        '35-65': '35fr 65fr'
       }
     }
   },

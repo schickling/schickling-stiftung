@@ -1,12 +1,11 @@
-import { title } from 'process'
 import { FC } from 'react'
 import { Layout, Container } from '../components/Layout'
 
 const Page: FC = () => (
   <Layout title="Veranstaltungen">
-    <div className="py-24 text-gray-600 bg-white">
+    <div className="py-10 text-gray-600 bg-white lg:py-24">
       <Container>
-        <div className="mt-10 mb-5 text-2xl font-bold text-gray-900">
+        <div className="mb-5 text-2xl font-bold text-gray-900">
           Veranstaltungen in 2020
         </div>
         <div className="pb-10 font-normal text-gray-900">
@@ -42,8 +41,8 @@ const EventBox: FC<{
   place: string
   date: string
 }> = ({ imageUrl, tag, title, description, place, date }) => (
-  <div className="grid grid-cols-1 gap-5 lg:grid-cols-35-65">
-    <img src={imageUrl} className="mb-6" />
+  <div className="grid grid-cols-1 gap-5 mb-9 lg:grid-cols-35-65">
+    <img src={imageUrl} />
     <div>
       <div className="inline-flex rounded px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
         {tag}
@@ -51,7 +50,7 @@ const EventBox: FC<{
       <div className="text-gray-900 text-lg font-bold mt-2.5 mb-2">{title}</div>
       <div className="font-normal text-gray-900">{description}</div>
       <div className="font-bold mt-6 mb-1.5">{place}</div>
-      <div className="flex justify-between mt-1.5 mb-9">
+      <div className="flex justify-between mt-1.5">
         <div className="font-bold text-gray-900">{date}</div>
         <div className="hidden font-bold text-gray-900 lg:block">Mehr →</div>
       </div>
