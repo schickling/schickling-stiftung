@@ -34,8 +34,8 @@ const UnterstuetzenPage: FC = () => (
           Konzerten, Lesungen, Seminaren auch die Herausgabe von Dokumentationen
           und Veröffentlichungen der Bilder und Texte.
         </div>
-        <div className="flex">
-          <div className="pr-11">
+        <div className="flex flex-col mb-8">
+          <div className="pr-0">
             <div className="mb-2 text-xl font-bold">Vorstand</div>
             <div className="mb-4">
               Der Vorstand des Förderkreises der Erich-Schickling-Stiftung e.V.
@@ -65,8 +65,8 @@ const UnterstuetzenPage: FC = () => (
               Sehr gerne sende wir Ihnen ein Beitrittsformular per Email oder
               postalisch zu.
             </div>
-            <div className="flex items-center">
-              <div className="px-5 py-3 mr-5 text-lg font-medium text-white bg-black rounded">
+            <div className="flex flex-col items-start md:flex-row md:items-center">
+              <div className="px-5 py-3 mb-4 mr-0 text-lg font-medium text-white bg-black md:mb-0 md:mr-5">
                 Per Email anfragen
               </div>
               <div className="font-bold text-gray-600">
@@ -83,7 +83,7 @@ const UnterstuetzenPage: FC = () => (
           Gemeinsam wird die Erich-Schickling-Stiftung zu einem Ort von Kunst,
           Musik, Natur und Begegnung.
         </div>
-        <div className="flex mb-5">
+        <div className="grid grid-cols-1 gap-5 my-5 lg:grid-cols-2">
           <FeatureBox
             imageUrl="https://i.imgur.com/MUk0BBh.png"
             title="Pflanzen und Bäume"
@@ -96,8 +96,6 @@ const UnterstuetzenPage: FC = () => (
             description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung
           freuen wir uns über Beiträge und Anregungen."
           />
-        </div>
-        <div className="flex mb-5">
           <FeatureBox
             imageUrl="https://i.imgur.com/5p0Egm9.png"
             title="Für die Stiftung spenden"
@@ -112,47 +110,6 @@ const UnterstuetzenPage: FC = () => (
             Freundeskreis in die Erich-Schicklung-Stiftung ein."
           />
         </div>
-        {/* <div>
-          <div className="flex">
-            <div className="mr-16">
-              <div className="flex mt-10">
-                <img
-                  src="https://i.imgur.com/5p0Egm9.png"
-                  className="w-11 h-11"
-                />
-                <div className="ml-5">
-                  <div className="font-bold text-gray-600">
-                    Für die Stiftung spenden
-                  </div>
-                  <div className="mt-1 font-normal text-gray-600">
-                    Unterstützen Sie die Stiftung mit einer monetären Spende und
-                    tragen Sie somit zum Erhalt der Stiftungsgebäude und den
-                    öffentlichen Angeboten bei.{' '}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div>
-                <div className="flex mt-10">
-                  <img
-                    src="https://i.imgur.com/se8R7f2.png"
-                    className="w-11 h-11"
-                  />
-                  <div className="ml-5">
-                    <div className="font-bold text-gray-600">
-                      Weitererzählen
-                    </div>
-                    <div className="mt-1 font-normal text-gray-600">
-                      Begeisterung steckt an! Laden Sie gerne auch Familie und
-                      Freundeskreis in die Erich-Schicklung-Stiftung ein.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </Container>
     </div>
   </Layout>
@@ -165,13 +122,11 @@ const FeatureBox: FC<{
   title: string
   description: string
 }> = ({ imageUrl, title, description }) => (
-  <div className="w-1/2 mr-16">
-    <div className="flex mt-10">
-      <img src={imageUrl} className="w-11 h-11" />
-      <div className="ml-5">
-        <div className="font-bold text-gray-600">{title}</div>
-        <div className="mt-1 font-normal text-gray-600">{description}</div>
-      </div>
+  <div className="flex">
+    <img src={imageUrl} className="w-11 h-11" />
+    <div className="ml-5">
+      <div className="font-bold text-gray-600">{title}</div>
+      <div className="mt-1 font-normal text-gray-600">{description}</div>
     </div>
   </div>
 )
