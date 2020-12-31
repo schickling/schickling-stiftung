@@ -3220,9 +3220,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ui-devtools/tailwind@schickling/tailwind#main":
+"@ui-devtools/tailwind@file:./ui-devtools::locator=with-typescript%40workspace%3A.":
   version: 0.5.7
-  resolution: "@ui-devtools/tailwind@https://github.com/schickling/tailwind.git#commit=2d4c7c0c34afe0d9273e80837b3b88b12a4140e6"
+  resolution: "@ui-devtools/tailwind@file:./ui-devtools#./ui-devtools::hash=5c800c&locator=with-typescript%40workspace%3A."
   dependencies:
     "@babel/runtime": ^7.12.5
     "@modulz/radix-icons": ^3.0.0
@@ -3247,7 +3247,7 @@ __metadata:
     tailwindcss: ">1.0.0"
   bin:
     devtools-server: server/index.js
-  checksum: 19c1fed6bd21379098cd43bb1d32882de6d61607cf0a1d29436ea9e74cccca9cd8303978a04631f45e19fdf7c075eeeb948d0dfb687cf3036ba6604ca1a4480c
+  checksum: 0d19997627ce544c72ab5743bbcb37c2952d9b13d03f3e9b1c65d44e9b88f8262b286fb42d1b286d06da45f87cebce364b42d44369e73e9af412fb9050607e11
   languageName: node
   linkType: hard
 
@@ -10443,7 +10443,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.16":
+"nanoid@npm:^3.1.16, nanoid@npm:^3.1.20":
   version: 3.1.20
   resolution: "nanoid@npm:3.1.20"
   bin:
@@ -11692,6 +11692,28 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"postcss@npm:7.0.21":
+  version: 7.0.21
+  resolution: "postcss@npm:7.0.21"
+  dependencies:
+    chalk: ^2.4.2
+    source-map: ^0.6.1
+    supports-color: ^6.1.0
+  checksum: 1c8617c2209480ddf3a460d668e69e3228035add75d7d7588c4122d11c7ae58d8b41e5c7a130c1969f2150c2a5bf5f78c5dcf146bb1bbfaf1ab1163ea7df4cf0
+  languageName: node
+  linkType: hard
+
+"postcss@npm:7.0.32":
+  version: 7.0.32
+  resolution: "postcss@npm:7.0.32"
+  dependencies:
+    chalk: ^2.4.2
+    source-map: ^0.6.1
+    supports-color: ^6.1.0
+  checksum: 340f4f6ca6bd37961927f68bf7e38d071a7cba0468240cbba64ccf78012b2acbec974491284cb200e438dd3e655314e6d9508562523cbf9a49d5b00fd7e769fa
+  languageName: node
+  linkType: hard
+
 "postcss@npm:8.1.7":
   version: 8.1.7
   resolution: "postcss@npm:8.1.7"
@@ -11701,6 +11723,39 @@ fsevents@~2.1.2:
     nanoid: ^3.1.16
     source-map: ^0.6.1
   checksum: 45ebaeb2814655d69439932169dd297957128c424a1533347a450c1f68a7f21e132d1658c7640bfb00cd880885662b15b85641556829b682f563f932b1f1a7e9
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^6.0.9":
+  version: 6.0.23
+  resolution: "postcss@npm:6.0.23"
+  dependencies:
+    chalk: ^2.4.1
+    source-map: ^0.6.1
+    supports-color: ^5.4.0
+  checksum: 9b61abdfb366491debc6a633ba3703ae43c674b6c1c64def54e131c8ec01862fc95b3271bde221db805389fc76c3b3f1447b5a9c1d0b332c53cfcc9bfe1b1fa6
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^7.0.0, postcss@npm:^7.0.14, postcss@npm:^7.0.26, postcss@npm:^7.0.32, postcss@npm:^7.0.5, postcss@npm:^7.0.6":
+  version: 7.0.35
+  resolution: "postcss@npm:7.0.35"
+  dependencies:
+    chalk: ^2.4.2
+    source-map: ^0.6.1
+    supports-color: ^6.1.0
+  checksum: 8a979ea9799dd48399337708a395ddb8cf0e328515201ed35c99f5ba5eaa7688eae65764c570bf49b5be0b106226e2f222abc210de068b3d3da9a9a3bbb70567
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.1.6, postcss@npm:^8.2.1":
+  version: 8.2.2
+  resolution: "postcss@npm:8.2.2"
+  dependencies:
+    colorette: ^1.2.1
+    nanoid: ^3.1.20
+    source-map: ^0.6.1
+  checksum: c661b093d245ef8e3b0340958f672e3abeb89627afa7064771dafafa49c80742f0b6e05c55ee5ab14aa1da2095aebfd69325778df8a90d4e41fdf685a76993f2
   languageName: node
   linkType: hard
 
@@ -14146,7 +14201,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^5.3.0":
+"supports-color@npm:^5.3.0, supports-color@npm:^5.4.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
   dependencies:
@@ -15526,7 +15581,7 @@ typescript@4.1.3:
     "@types/node": ^14.14.16
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
-    "@ui-devtools/tailwind": "schickling/tailwind#main"
+    "@ui-devtools/tailwind": "file:./ui-devtools"
     autoprefixer: ^10.1.0
     change-case: ^4.1.2
     lodash: ^4.17.20
