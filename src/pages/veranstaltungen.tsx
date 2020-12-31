@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Layout, { Container } from '../components/Layout'
+import { Layout, Container } from '../components/Layout'
 
 const Page: FC = () => (
   <Layout title="Veranstaltungen">
@@ -15,7 +15,7 @@ const Page: FC = () => (
           Publikum.
         </div>
         <img src="https://i.imgur.com/5GwJhHA.jpg" className="pb-6 mb-6" />
-        <div className="rounded pt-2 pr-0 pl-3 mr-0 mt-0 mx-0 my-0 px-3 py-2 text-gray-600 font-medium text-sm bg-gray-200">
+        <div className="inline-flex px-3 py-2 mx-0 my-0 mt-0 mr-0 text-sm font-medium text-gray-600 bg-gray-200 rounded">
           Wöchentliche Führung
         </div>
         <div>Einblicke in das Schaffen und Werk des Künstlers →</div>
