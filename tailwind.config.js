@@ -17,6 +17,11 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
+    extend: {
+      gridTemplateColumns: {
+        '35-65': '35% 65%'
+      }
+    }
   },
   variants: {},
   plugins: [],

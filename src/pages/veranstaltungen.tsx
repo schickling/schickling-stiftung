@@ -1,3 +1,4 @@
+import { title } from 'process'
 import { FC } from 'react'
 import { Layout, Container } from '../components/Layout'
 
@@ -16,28 +17,46 @@ const Page: FC = () => (
           Musiker erproben hier gerne ihre Programme vor einem wohlgesonnenen
           Publikum.
         </div>
-        <img src="https://i.imgur.com/5GwJhHA.jpg" className="mb-6" />
-        <div className="rounded inline-flex px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
-          Wöchentliche Führung
-        </div>
-        <div className="text-gray-900 text-lg font-bold mt-2.5 mb-2">
-          Einblicke in das Schaffen und Werk des Künstlers →
-        </div>
-        <div className="font-normal text-gray-900">
-          Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich Schickling
-          (1924-2012) in über 60-jähriger Arbeit zusammen mit seiner Frau Inge
-          eine Begegnungsstätte für Kunst und Religion geschaffen.
-        </div>
-        <div className="font-bold mt-6 mb-1.5">
-          In der Erich Schickling Stiftung
-        </div>
-        <div className="text-gray-900 font-bold mt-1.5 mb-9">
-          Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr
-        </div>
+        <EventBox
+          imageUrl="https://i.imgur.com/5GwJhHA.jpg"
+          tag="Wöchentliche Führung"
+          title="Einblicke in das Schaffen und Werk des Künstlers →"
+          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
+  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
+  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
+  geschaffen."
+          place="In der Erich Schickling Stiftung"
+          date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
+        />
         <div className="w-full h-px my-5 bg-gray-200" />
       </Container>
     </div>
   </Layout>
+)
+
+const EventBox: FC<{
+  imageUrl: string
+  tag: string
+  title: string
+  description: string
+  place: string
+  date: string
+}> = ({ imageUrl, tag, title, description, place, date }) => (
+  <div className="grid grid-cols-1 gap-5 lg:grid-cols-35-65">
+    <img src={imageUrl} className="mb-6" />
+    <div>
+      <div className="inline-flex rounded px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
+        {tag}
+      </div>
+      <div className="text-gray-900 text-lg font-bold mt-2.5 mb-2">{title}</div>
+      <div className="font-normal text-gray-900">{description}</div>
+      <div className="font-bold mt-6 mb-1.5">{place}</div>
+      <div className="flex justify-between mt-1.5 mb-9">
+        <div className="font-bold text-gray-900">{date}</div>
+        <div className="hidden font-bold text-gray-900 lg:block">Mehr →</div>
+      </div>
+    </div>
+  </div>
 )
 
 export default Page
