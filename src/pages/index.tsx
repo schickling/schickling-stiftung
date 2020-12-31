@@ -1,11 +1,12 @@
-import { Layout } from '../components/Layout'
+import React from 'react'
+import { Container, Layout } from '../components/Layout'
 
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <div className="py-3">
+    <Container className="py-3">
       <img src="https://i.imgur.com/076mjd8.png" />
       <div className="h-16"></div>
-    </div>
+    </Container>
   </Layout>
 )
 
