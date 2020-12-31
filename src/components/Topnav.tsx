@@ -3,10 +3,11 @@ import Link from 'next/link'
 
 const navItems = d([
   { path: '/', title: 'Startseite' },
-  { path: '/erich-schickling', title: 'Erich Schickling' },
+  { path: '/ort', title: 'Ort' },
   { path: '/werke', title: 'Werke' },
-  { path: '/foederkreis', title: 'Förderkreis' },
+  { path: '/erich-schickling', title: 'Erich Schickling' },
   { path: '/veranstaltungen', title: 'Veranstaltungen' },
+  { path: '/unterstuetzen', title: 'Unterstützen' },
   { path: '/kontakt', title: 'Kontakt' },
 ])
 
