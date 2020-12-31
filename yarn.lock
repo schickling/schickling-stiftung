@@ -3220,9 +3220,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ui-devtools/tailwind@schickling/tailwind#main":
+"@ui-devtools/tailwind@file:./ui-devtools::locator=with-typescript%40workspace%3A.":
   version: 0.5.7
-  resolution: "@ui-devtools/tailwind@https://github.com/schickling/tailwind.git#commit=2d4c7c0c34afe0d9273e80837b3b88b12a4140e6"
+  resolution: "@ui-devtools/tailwind@file:./ui-devtools#./ui-devtools::hash=5c800c&locator=with-typescript%40workspace%3A."
   dependencies:
     "@babel/runtime": ^7.12.5
     "@modulz/radix-icons": ^3.0.0
@@ -3247,7 +3247,7 @@ __metadata:
     tailwindcss: ">1.0.0"
   bin:
     devtools-server: server/index.js
-  checksum: 19c1fed6bd21379098cd43bb1d32882de6d61607cf0a1d29436ea9e74cccca9cd8303978a04631f45e19fdf7c075eeeb948d0dfb687cf3036ba6604ca1a4480c
+  checksum: 0d19997627ce544c72ab5743bbcb37c2952d9b13d03f3e9b1c65d44e9b88f8262b286fb42d1b286d06da45f87cebce364b42d44369e73e9af412fb9050607e11
   languageName: node
   linkType: hard
 
@@ -15526,7 +15526,7 @@ typescript@4.1.3:
     "@types/node": ^14.14.16
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
-    "@ui-devtools/tailwind": "schickling/tailwind#main"
+    "@ui-devtools/tailwind": "file:./ui-devtools"
     autoprefixer: ^10.1.0
     change-case: ^4.1.2
     lodash: ^4.17.20
