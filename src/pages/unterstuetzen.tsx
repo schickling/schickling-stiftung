@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Layout, { Container } from '../components/Layout'
+import { Layout, Container } from '../components/Layout'
 
 const Page: FC = () => (
   <Layout title="Unterstützen">

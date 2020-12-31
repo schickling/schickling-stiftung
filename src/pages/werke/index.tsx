@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import Router from 'next/router'
 
-const Component: React.FunctionComponent<{}> = () => {
+const Component: FC<{}> = () => {
   useEffect(() => {
     Router.push('/werke/bilder')
   })

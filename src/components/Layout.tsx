@@ -1,14 +1,13 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { FC } from 'react'
-import { Topnav } from './Topnav'
+import { SubNavItem, Topnav } from './Topnav'
 import { useRouter } from 'next/router'
 
-type Props = {
+export const Layout: FC<{
   title?: string
-}
-
-const Layout: FC<Props> = ({ children, title }) => {
+  subNavItems?: SubNavItem[]
+}> = ({ title, subNavItems, children }) => {
   const router = useRouter()
   return (
     <div>
@@ -17,26 +16,29 @@ const Layout: FC<Props> = ({ children, title }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Container>
-        <Topnav currentPath={router.pathname as any} />
+      <Container className="py-5">
+        <Topnav currentPath={router.asPath} subNavItems={subNavItems} />
       </Container>
       {children}
       <Container>
         <footer className="py-3 mt-8 font-medium text-gray-700 border-t border-gray-700">
-          <span>Erich Schickling Stiftung © 1998 - 2020</span>
+          <span>
+            Erich Schickling Stiftung © 1998 - {new Date().getFullYear()}
+          </span>
         </footer>
       </Container>
     </div>
   )
 }
 
-export const Container: FC = ({ children }) => (
+export const Container: FC<{ className?: string }> = ({
+  children,
+  className,
+}) => (
   <div
-    className="container mx-auto"
-    style={{ maxWidth: 1048, padding: '0 24px' }}
+    className={`container mx-auto ${className ?? ''}`}
+    style={{ maxWidth: 1048, paddingLeft: 24, paddingRight: 24 }}
   >
     {children}
   </div>
 )
-
-export default Layout
