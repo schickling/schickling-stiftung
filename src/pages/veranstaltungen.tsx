@@ -28,6 +28,42 @@ const Page: FC = () => (
           date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
         />
         <div className="w-full h-px my-5 bg-gray-200" />
+        <EventBox
+          imageUrl="https://i.imgur.com/3rW0XpV.png"
+          tag="Konzert in der Erich-Schickling Stiftung"
+          title="Einblicke in das Schaffen und Werk des Künstlers →"
+          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
+  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
+  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
+  geschaffen."
+          place="In der Erich Schickling Stiftung"
+          date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
+        />
+        <div className="w-full h-px my-5 bg-gray-200" />
+        <EventBox
+          imageUrl="https://i.imgur.com/XSVguip.png"
+          tag="Wöchentliche Führung"
+          title="Einblicke in das Schaffen und Werk des Künstlers →"
+          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
+  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
+  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
+  geschaffen."
+          place="In der Erich Schickling Stiftung"
+          date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
+        />
+        <div className="w-full h-px my-5 bg-gray-200" />
+        <EventBox
+          imageUrl="https://i.imgur.com/s95Y7g1.jpeg"
+          tag="Wanderausstellung"
+          title="„Aufbruch zum Staunen“ mit Werken von Erich Schickling →"
+          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
+  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
+  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
+  geschaffen."
+          place="In der Erich Schickling Stiftung"
+          date="Ab 03.05.2020 bis 01.01.2021"
+        />
+        <div className="w-full h-px my-5 bg-gray-200" />
       </Container>
     </div>
   </Layout>
