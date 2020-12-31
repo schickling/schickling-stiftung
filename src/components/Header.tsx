@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import React, { FC, useState } from 'react'
+import * as Icons from 'heroicons-react'
 import Link from 'next/link'
 
 const navItems = d([
@@ -13,10 +14,13 @@ const navItems = d([
 
 type NavPath = typeof navItems[number]['path']
 
-export const Topnav: FC<{
+type Props = {
   currentPath: NavPath | string
   subNavItems?: SubNavItem[]
-}> = ({ currentPath, subNavItems }) => {
+}
+
+export const Header: FC<Props> = ({ currentPath, subNavItems }) => {
+  const [showDropdown, setShowDropdown] = useState(false)
   return (
     <>
       <header className="flex items-center justify-between border-b border-gray-700">
@@ -47,11 +51,61 @@ export const Topnav: FC<{
             )
           })}
         </nav>
+        <div
+          className="cursor-pointer lg:hidden clickarea"
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
+          <Icons.Menu />
+        </div>
       </header>
-      {subNavItems && (
+      {showDropdown && (
+        <NavDropdown currentPath={currentPath} subNavItems={subNavItems} />
+      )}
+      {subNavItems && !showDropdown && (
         <SubNav currentPath={currentPath} navItems={subNavItems} />
       )}
     </>
+  )
+}
+
+const NavDropdown: FC<Props> = ({ currentPath, subNavItems }) => {
+  return (
+    <div className="py-2">
+      {navItems.map((navItem) => {
+        const isActive = isActivePath(currentPath, navItem.path)
+        return (
+          <>
+            <Link href={navItem.path} key={navItem.path}>
+              <a
+                className={`flex py-1 hover:text-white items-center font-medium ${
+                  isActive ? '' : 'text-gray-600'
+                }`}
+              >
+                {navItem.title}
+              </a>
+            </Link>
+            {isActive && subNavItems && (
+              <div className="pb-2">
+                {subNavItems.map((navItem) => {
+                  const classes = isActivePath(currentPath, navItem.path)
+                    ? ''
+                    : 'text-gray-600'
+                  return (
+                    <Link href={navItem.path} key={navItem.path}>
+                      <a
+                        className={`flex py-1 pl-4 hover:text-white items-center font-medium ${classes}`}
+                      >
+                        {navItem.title}
+                      </a>
+                    </Link>
+                  )
+                })}{' '}
+              </div>
+            )}
+          </>
+        )
+      })}
+    </div>
   )
 }
 
