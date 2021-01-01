@@ -5,6 +5,7 @@ import { artworks, categories } from '../../../data/artworks'
 import { defineStaticPaths, defineStaticProps } from '../../../utils/next'
 import { InferGetStaticPropsType } from 'next'
 import { FC } from 'react'
+import Image from 'next/image'
 
 export const getStaticProps = defineStaticProps(async (context) => {
   return {
@@ -42,11 +43,15 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 )}/${escapeAndParamCase(artwork.title)}`}
               >
                 <a>
-                  <img
-                    src={`${artwork.imageUrl}?width=500`}
-                    className="self-start object-contain w-full overflow-hidden"
-                    style={{ background: '#111', height: 330 }}
-                  />
+                  <div className="flex bg-gray-900">
+                    <Image
+                      src={`${artwork.imageUrl}`}
+                      // className="self-start object-contain w-full overflow-hidden"
+                      objectFit="contain"
+                      height={330}
+                      width={500}
+                    />
+                  </div>
                   <div className="mt-4 font-medium">{artwork.title}</div>
                 </a>
               </Link>
