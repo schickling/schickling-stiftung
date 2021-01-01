@@ -6,7 +6,7 @@
     "dev:next": "next",
     "dev:ui-devtools": "devtools-server -c tailwind.config.js",
     "dev:storybook": "start-storybook --ci -p 33000",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "fetch": "sourcebit fetch",
     "build:storybook": "build-storybook",
