@@ -93,7 +93,9 @@ export const PDFDownload: FC<{
   </div>
 )
 
-export const Spacer: FC = () => <div className="w-full h-px bg-gray-200 my-9" />
+export const Spacer: FC<{ className?: string }> = ({ className }) => (
+  <div className={`w-full h-px bg-gray-200 my-9 ${className ?? ''}`} />
+)
 
 export const EventBox: FC<{
   event: Event
