@@ -70,6 +70,16 @@ const Page: FC = () => (
           date="Ab 03.05.2020 bis 01.01.2021"
         />
         <Spacer />
+        <div className="sm:font-bold sm:text-gray-900 sm:text-xl sm:mt-16 sm:mb-1">
+          Jahresprogramm als PDF herunterladen
+        </div>
+        <div className="sm:font-normal">
+          Fotos, Videos und Text der letzten Veranstaltungen finden Sie hier.
+        </div>
+        <img src="https://i.imgur.com/4LtthQc.png" className="sm:mb-6" />
+        <div className="py-3 pt-3 pb-3 text-base border-2 border-gray-300 pr-14 pl-14 sm:block px-14">
+          Jahresprogramm 2021 als PDF →
+        </div>
       </Container>
     </div>
   </Layout>
