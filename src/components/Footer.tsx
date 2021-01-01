@@ -14,7 +14,7 @@ export const Footer: FC<{}> = ({}) => {
               { title: 'Ort', path: '/ort' },
               { title: 'Führungen', path: '/veranstaltungen/fuehrungen' },
               { title: 'Anfahrt', path: '/' },
-              { title: 'Veranstaltungen', path: '/veranstaltungen/uebersicht' },
+              { title: 'Veranstaltungen', path: '/veranstaltungen' },
             ]}
           />
           <NavBlock
