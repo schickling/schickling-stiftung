@@ -65,33 +65,39 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           />
         </div>
         <Spacer className="hidden lg:block" />
-        <div className="mt-10 text-xl font-bold text-gray-900">
-          Kostenlosen Newsletter der Schickling Stiftung erhalten
-        </div>
-        <div className="mt-1 mb-6 font-normal">
-          In unserem Newsletter informieren wir regelmäßig über alle
-          Veranstaltung in und außerhalb der Stiftung. In unserem Newsletter
-          informieren wir regelmäßig über alle Veranstaltung in und außerhalb
-          der Stiftung.
-        </div>
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
-          <input
-            type="text"
-            className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded"
-            placeholder="Ihr Name"
-          />
-          <input
-            type="text"
-            className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded"
-            placeholder="Ihre Email Adresse"
-          />
-          <div className="inline-flex justify-center px-5 py-3 font-medium text-white bg-black rounded">
-            Für Newsletter anmelden
-          </div>
-        </div>
+        {/* TODO large spacer for mobile */}
+        <Newsletter />
       </Container>
     </div>
   </Layout>
 )
 
 export default Page
+
+const Newsletter: FC = () => (
+  <>
+    <div className="mt-10 text-xl font-bold text-gray-900">
+      Kostenlosen Newsletter der Schickling Stiftung erhalten
+    </div>
+    <div className="mt-1 mb-6 font-normal">
+      In unserem Newsletter informieren wir regelmäßig über alle Veranstaltung
+      in und außerhalb der Stiftung. In unserem Newsletter informieren wir
+      regelmäßig über alle Veranstaltung in und außerhalb der Stiftung.
+    </div>
+    <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
+      <input
+        type="text"
+        className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded"
+        placeholder="Ihr Name"
+      />
+      <input
+        type="text"
+        className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded"
+        placeholder="Ihre Email Adresse"
+      />
+      <div className="inline-flex justify-center px-5 py-3 font-medium text-white bg-black rounded">
+        Für Newsletter anmelden
+      </div>
+    </div>
+  </>
+)
