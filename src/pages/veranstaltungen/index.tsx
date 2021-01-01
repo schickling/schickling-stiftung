@@ -44,20 +44,41 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             <EventBox {...event} />
           </Fragment>
         ))}
-        <Spacer />
-        <div className="sm:font-bold sm:text-gray-900 sm:text-xl sm:mt-16 sm:mb-1">
+        <div className="mt-16 mb-1 text-xl font-bold text-gray-900">
           Jahresprogramm als PDF herunterladen
         </div>
-        <div className="sm:font-normal">
+        <div className="font-normal mb-11">
           Fotos, Videos und Text der letzten Veranstaltungen finden Sie hier.
         </div>
-        <img src="https://i.imgur.com/4LtthQc.png" className="sm:mb-6" />
-        <div className="py-3 pt-3 pb-3 text-base border-2 border-gray-300 pr-14 pl-14 sm:block px-14">
-          Jahresprogramm 2021 als PDF →
+        <div className="grid cols-1 gap-11 lg:grid-cols-3">
+          <PDFDownload
+            imageUrl="https://i.imgur.com/4LtthQc.png/"
+            description="Jahresprogramm 2021 als PDF →"
+          />
+          <PDFDownload
+            imageUrl="https://i.imgur.com/3uy98We.png"
+            description="Jahresprogramm 2020 als PDF →"
+          />
+          <PDFDownload
+            imageUrl="https://i.imgur.com/u7FQKvA.png"
+            description="Jahresprogramm 2019 als PDF →"
+          />
         </div>
       </Container>
     </div>
   </Layout>
+)
+
+const PDFDownload: FC<{
+  imageUrl: string
+  description: string
+}> = ({ imageUrl, description }) => (
+  <div>
+    <img src={imageUrl} className="w-full mb-6" />
+    <div className="flex justify-center px-5 py-3 pl-5 text-base font-medium border border-gray-300 rounded">
+      {description}
+    </div>
+  </div>
 )
 
 const Spacer: FC = () => <div className="w-full h-px bg-gray-200 my-9" />
