@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Layout } from '../components/Layout'
 
-const IndexPage = () => (
+const Page = () => (
   <Layout title="Home | Next.js + TypeScript Example">
     <Container className="py-3">
       <img src="https://i.imgur.com/076mjd8.png" />
@@ -10,4 +10,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default Page

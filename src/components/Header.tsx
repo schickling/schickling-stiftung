@@ -112,6 +112,7 @@ const NavDropdown: FC<Props> = ({ currentPath, subNavItems }) => {
 export type SubNavItem = {
   title: string
   path: string
+  exact?: boolean
 }
 
 const SubNav: FC<{ currentPath: string; navItems: SubNavItem[] }> = ({
@@ -121,7 +122,11 @@ const SubNav: FC<{ currentPath: string; navItems: SubNavItem[] }> = ({
   return (
     <nav className="self-stretch hidden mb-4 -mt-px lg:flex">
       {navItems.map((navItem) => {
-        const classes = isActivePath(currentPath, navItem.path)
+        const classes = isActivePath(
+          currentPath,
+          navItem.path,
+          navItem.exact ?? false,
+        )
           ? 'border-t border-white'
           : 'text-gray-600'
         return (
@@ -138,8 +143,12 @@ const SubNav: FC<{ currentPath: string; navItems: SubNavItem[] }> = ({
   )
 }
 
-function isActivePath(currentPath: string, checkPath: string): boolean {
-  if (checkPath === '/') {
+function isActivePath(
+  currentPath: string,
+  checkPath: string,
+  matchExact: boolean,
+): boolean {
+  if (checkPath === '/' || matchExact) {
     return checkPath === currentPath
   }
 

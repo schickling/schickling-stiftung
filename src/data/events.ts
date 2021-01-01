@@ -1,3 +1,5 @@
+import { unique } from '../utils/utils'
+
 export type Event = {
   imageUrl: string
   tag: string
@@ -12,7 +14,7 @@ export const events: Event[] = [
   {
     imageUrl: 'https://i.imgur.com/5GwJhHA.jpg',
     tag: 'Wöchentliche Führung',
-    title: 'Einblicke in das Schaffen und Werk des Künstlers →',
+    title: 'Einblicke in das Schaffen und Werk des Künstlers',
     description: `Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
   Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
   seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
@@ -24,7 +26,7 @@ export const events: Event[] = [
   {
     imageUrl: 'https://i.imgur.com/3rW0XpV.jpg',
     tag: 'Konzert in der Erich-Schickling Stiftung',
-    title: 'Einblicke in das Schaffen und Werk des Künstlers →',
+    title: 'Einblicke in das Schaffen und Werk des Künstlers',
     description: `Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
   Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
   seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
@@ -36,7 +38,7 @@ export const events: Event[] = [
   {
     imageUrl: 'https://i.imgur.com/XSVguip.jpg',
     tag: 'Wöchentliche Führung',
-    title: 'Einblicke in das Schaffen und Werk des Künstlers →',
+    title: 'Einblicke in das Schaffen und Werk des Künstlers',
     description: `Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
   Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
   seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
@@ -48,7 +50,7 @@ export const events: Event[] = [
   {
     imageUrl: 'https://i.imgur.com/s95Y7g1.jpg',
     tag: 'Wanderausstellung',
-    title: 'Einblicke in das Schaffen und Werk des Künstlers →',
+    title: 'Einblicke in das Schaffen und Werk des Künstlers',
     description: `Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
   Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
   seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
@@ -58,3 +60,5 @@ export const events: Event[] = [
     year: 2020,
   },
 ]
+
+export const years = unique(events.map((_) => _.year))
