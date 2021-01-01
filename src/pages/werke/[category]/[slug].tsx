@@ -1,10 +1,11 @@
+import { InferGetStaticPropsType } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
 import { Layout, Container } from '../../../components/Layout'
 import { Artwork, artworks, categories } from '../../../data/artworks'
 import { defineStaticPaths, defineStaticProps } from '../../../utils/next'
 import { escapeAndParamCase } from '../../../utils/utils'
 import React, { FC } from 'react'
-import { InferGetStaticPropsType } from 'next'
-import Link from 'next/link'
 
 export const getStaticProps = defineStaticProps(async (context) => {
   const categoryArtworks = artworks.filter(
@@ -53,31 +54,34 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   nextPath,
 }) => {
   const isVertical = artwork.format === 'Vertikal'
+  const imageWidth = isVertical ? 600 : 1000
 
   return (
     <Layout title={artwork.title} subNavItems={subNavItems}>
       <Container>
         <div className="relative">
           {prevPath && (
-            <div className="absolute left-0 -ml-10 text-2xl font-medium leading-none text-gray-700 transform -translate-x-full bg-gray-900 rounded-full hover:text-gray-300 top-60">
+            <div className="absolute left-0 hidden -ml-10 text-2xl font-medium leading-none text-gray-700 transform -translate-x-full bg-gray-900 rounded-full xl:block hover:text-gray-300 top-60">
               <Link href={prevPath}>
                 <a className="block p-3">←</a>
               </Link>
             </div>
           )}
           {nextPath && (
-            <div className="absolute right-0 -mr-10 text-2xl font-medium leading-none text-gray-700 transform translate-x-full bg-gray-900 rounded-full hover:text-gray-300 top-60">
+            <div className="absolute right-0 hidden -mr-10 text-2xl font-medium leading-none text-gray-700 transform translate-x-full bg-gray-900 rounded-full xl:block hover:text-gray-300 top-60">
               <Link href={nextPath}>
                 <a className="block p-3">→</a>
               </Link>
             </div>
           )}
           <div className={isVertical ? 'flex' : ''}>
-            <img
-              src={`${artwork.imageUrl}?width=${isVertical ? 600 : 1000}`}
-              className={`self-start object-contain ${
-                isVertical ? '' : 'w-full'
-              }`}
+            <Image
+              src={`${artwork.imageUrl}`}
+              layout="intrinsic"
+              width={imageWidth}
+              height={imageWidth * artwork.imageRatio}
+              loading="eager"
+              objectFit="contain"
             />
             <div className={isVertical ? 'ml-12' : 'mt-8'}>
               <div className="text-2xl font-medium">{artwork.title}</div>

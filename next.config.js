@@ -31,4 +31,7 @@ module.exports = {
     config.plugins.push(new webpack.WatchIgnorePlugin([/\/content\//]))
     return config
   },
+  images: {
+    domains: ['www.notion.so', 'i.imgur.com', 'www.schickling-stiftung.de'],
+  },
 }
