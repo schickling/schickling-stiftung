@@ -87,12 +87,12 @@ const Newsletter: FC = () => (
     <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
       <input
         type="text"
-        className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded"
+        className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded shadow-none"
         placeholder="Ihr Name"
       />
       <input
         type="text"
-        className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded"
+        className="inline-flex px-5 py-3 pt-3 pl-5 font-normal text-gray-500 border border-gray-300 rounded shadow-none"
         placeholder="Ihre Email Adresse"
       />
       <div className="inline-flex justify-center px-5 py-3 font-medium text-white bg-black rounded">
