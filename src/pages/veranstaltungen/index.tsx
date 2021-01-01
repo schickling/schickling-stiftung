@@ -38,10 +38,10 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           Musiker erproben hier gerne ihre Programme vor einem wohlgesonnenen
           Publikum.
         </div>
-        {events.map((event) => (
+        {events.map((event, index) => (
           <Fragment key={event.title}>
+            {index > 0 && <Spacer />}
             <EventBox {...event} />
-            <Spacer />
           </Fragment>
         ))}
         <div className="mt-16 mb-1 text-xl font-bold text-gray-900">
