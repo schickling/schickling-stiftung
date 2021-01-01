@@ -25,3 +25,5 @@ function replaceUmlaute(str: string): string {
       (a) => umlautMap[a],
     )
 }
+
+export const unique = <X>(xs: X[]): X[] => Array.from(new Set(xs))

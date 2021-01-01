@@ -1,12 +1,28 @@
-import { FC } from 'react'
+import { InferGetStaticPropsType } from 'next'
+import { FC, Fragment } from 'react'
 import { Layout, Container } from '../../components/Layout'
+import { events } from '../../data/events'
+import { defineStaticProps } from '../../utils/next'
+import { unique } from '../../utils/utils'
 
-const Page: FC = () => (
+export const getStaticProps = defineStaticProps(async () => {
+  return {
+    props: {
+      events,
+      years: unique(events.map((_) => _.year)),
+    },
+  }
+})
+
+const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  events,
+  years,
+}) => (
   <Layout
     title="Veranstaltungen"
     subNavItems={[
       { path: '/veranstaltungen', title: 'Übersicht' },
-      { path: '/veranstaltungen/2020', title: '2020' },
+      ...years.map((_) => ({ path: `/veranstaltungen/${_}`, title: `${_}` })),
     ]}
   >
     <div className="py-10 text-gray-600 bg-white lg:py-24">
@@ -22,54 +38,12 @@ const Page: FC = () => (
           Musiker erproben hier gerne ihre Programme vor einem wohlgesonnenen
           Publikum.
         </div>
-        <EventBox
-          imageUrl="https://i.imgur.com/5GwJhHA.jpg"
-          tag="Wöchentliche Führung"
-          title="Einblicke in das Schaffen und Werk des Künstlers →"
-          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
-  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
-  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
-  geschaffen."
-          place="In der Erich Schickling Stiftung"
-          date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
-        />
-        <Spacer />
-        <EventBox
-          imageUrl="https://i.imgur.com/3rW0XpV.png"
-          tag="Konzert in der Erich-Schickling Stiftung"
-          title="Einblicke in das Schaffen und Werk des Künstlers →"
-          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
-  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
-  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
-  geschaffen."
-          place="In der Erich Schickling Stiftung"
-          date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
-        />
-        <Spacer />
-        <EventBox
-          imageUrl="https://i.imgur.com/XSVguip.png"
-          tag="Wöchentliche Führung"
-          title="Einblicke in das Schaffen und Werk des Künstlers →"
-          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
-  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
-  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
-  geschaffen."
-          place="In der Erich Schickling Stiftung"
-          date="Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr"
-        />
-        <Spacer />
-        <EventBox
-          imageUrl="https://i.imgur.com/s95Y7g1.jpeg"
-          tag="Wanderausstellung"
-          title="„Aufbruch zum Staunen“ mit Werken von Erich Schickling →"
-          description="Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich
-  Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit
-  seiner Frau Inge eine Begegnungsstätte für Kunst und Religion
-  geschaffen."
-          place="In der Erich Schickling Stiftung"
-          date="Ab 03.05.2020 bis 01.01.2021"
-        />
-        <Spacer />
+        {events.map((event) => (
+          <Fragment key={event.title}>
+            <EventBox {...event} />
+            <Spacer />
+          </Fragment>
+        ))}
       </Container>
     </div>
   </Layout>
