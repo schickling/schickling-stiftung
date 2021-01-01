@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
-import * as Icons from 'heroicons-react'
 import Link from 'next/link'
+import { Icons } from './icons'
 
 const navItems = d([
   { path: '/', title: 'Startseite' },

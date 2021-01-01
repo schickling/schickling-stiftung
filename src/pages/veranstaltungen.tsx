@@ -79,8 +79,8 @@ const EventBox: FC<{
   place: string
   date: string
 }> = ({ imageUrl, tag, title, description, place, date }) => (
-  <div className="grid grid-cols-1 gap-5 lg:grid-cols-35-65">
-    <img src={imageUrl} />
+  <div className="grid grid-cols-1 gap-5 lg:grid-cols-35-65 lg:gap-11">
+    <img src={imageUrl} className="object-cover h-full" />
     <div>
       <div className="inline-flex rounded px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
         {tag}

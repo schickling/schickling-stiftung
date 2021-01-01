@@ -3222,7 +3222,7 @@ __metadata:
 
 "@ui-devtools/tailwind@file:./ui-devtools::locator=with-typescript%40workspace%3A.":
   version: 0.5.7
-  resolution: "@ui-devtools/tailwind@file:./ui-devtools#./ui-devtools::hash=0de5ac&locator=with-typescript%40workspace%3A."
+  resolution: "@ui-devtools/tailwind@file:./ui-devtools#./ui-devtools::hash=5c800c&locator=with-typescript%40workspace%3A."
   dependencies:
     "@babel/runtime": ^7.12.5
     "@modulz/radix-icons": ^3.0.0
@@ -3247,7 +3247,7 @@ __metadata:
     tailwindcss: ">1.0.0"
   bin:
     devtools-server: server/index.js
-  checksum: 26880d334d229e028e445633ad2a8632ddd1f36d36696e5d75dbb9a6f72864d23a562028000eb765a3474b5aa96f4726d70c3e6409f5178ac22cadabc7e2bfee
+  checksum: 0d19997627ce544c72ab5743bbcb37c2952d9b13d03f3e9b1c65d44e9b88f8262b286fb42d1b286d06da45f87cebce364b42d44369e73e9af412fb9050607e11
   languageName: node
   linkType: hard
 

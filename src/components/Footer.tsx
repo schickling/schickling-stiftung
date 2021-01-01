@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React, { FC } from 'react'
 import { categories } from '../data/artworks'
+import { Icons } from './icons'
 
 export const Footer: FC<{}> = ({}) => {
   return (
@@ -60,12 +61,30 @@ export const Footer: FC<{}> = ({}) => {
               </a>
             </div>
           </div>
+          <div className="flex mt-5">
+            <a
+              href="https://www.youtube.com/watch?v=f-lC3Ubup7Q"
+              target="_blank"
+            >
+              <Icons.Youtube />
+            </a>
+            <a
+              href="https://www.instagram.com/erichschicklingstiftung/"
+              target="_blank"
+              className="ml-3.5"
+            >
+              <Icons.Instagram />
+            </a>
+          </div>
         </div>
       </div>
-      <footer className="py-5 font-medium text-gray-700 border-t border-gray-800 mt-14">
-        <span>
-          Erich Schickling Stiftung © 1998 - {new Date().getFullYear()}
-        </span>
+      <footer className="flex justify-between py-5 font-medium text-gray-700 border-t border-gray-800 mt-14">
+        <div>Erich Schickling Stiftung © 1998 - {new Date().getFullYear()}</div>
+        <div>
+          <Link href="/impressum">
+            <a>Impressum</a>
+          </Link>
+        </div>
       </footer>
     </div>
   )
