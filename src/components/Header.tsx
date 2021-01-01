@@ -72,7 +72,7 @@ const NavDropdown: FC<Props> = ({ currentPath, subNavItems }) => {
   return (
     <div className="py-2">
       {navItems.map((navItem) => {
-        const isActive = isActivePath(currentPath, navItem.path)
+        const isActive = isActivePath(currentPath, navItem.path, false)
         return (
           <>
             <Link href={navItem.path} key={navItem.path}>
@@ -87,7 +87,11 @@ const NavDropdown: FC<Props> = ({ currentPath, subNavItems }) => {
             {isActive && subNavItems && (
               <div className="py-2">
                 {subNavItems.map((navItem) => {
-                  const classes = isActivePath(currentPath, navItem.path)
+                  const classes = isActivePath(
+                    currentPath,
+                    navItem.path,
+                    navItem.exact,
+                  )
                     ? ''
                     : 'text-gray-600'
                   return (
@@ -122,11 +126,7 @@ const SubNav: FC<{ currentPath: string; navItems: SubNavItem[] }> = ({
   return (
     <nav className="self-stretch hidden mb-4 -mt-px lg:flex">
       {navItems.map((navItem) => {
-        const classes = isActivePath(
-          currentPath,
-          navItem.path,
-          navItem.exact ?? false,
-        )
+        const classes = isActivePath(currentPath, navItem.path, navItem.exact)
           ? 'border-t border-white'
           : 'text-gray-600'
         return (
@@ -146,7 +146,7 @@ const SubNav: FC<{ currentPath: string; navItems: SubNavItem[] }> = ({
 function isActivePath(
   currentPath: string,
   checkPath: string,
-  matchExact: boolean,
+  matchExact?: boolean,
 ): boolean {
   if (checkPath === '/' || matchExact) {
     return checkPath === currentPath
