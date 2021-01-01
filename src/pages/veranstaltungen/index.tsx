@@ -1,8 +1,14 @@
 import { FC } from 'react'
-import { Layout, Container } from '../components/Layout'
+import { Layout, Container } from '../../components/Layout'
 
 const Page: FC = () => (
-  <Layout title="Veranstaltungen">
+  <Layout
+    title="Veranstaltungen"
+    subNavItems={[
+      { path: '/veranstaltungen', title: 'Übersicht' },
+      { path: '/veranstaltungen/2020', title: '2020' },
+    ]}
+  >
     <div className="py-10 text-gray-600 bg-white lg:py-24">
       <Container>
         <div className="mb-5 text-2xl font-bold text-gray-900">
