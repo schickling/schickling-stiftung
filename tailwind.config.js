@@ -19,9 +19,9 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        '35-65': '35fr 65fr'
-      }
-    }
+        '35-65': '35fr 65fr',
+      },
+    },
   },
   variants: {},
   plugins: [],
