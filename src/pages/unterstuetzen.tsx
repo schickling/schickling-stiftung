@@ -34,7 +34,7 @@ const Page: FC = () => (
           Konzerten, Lesungen, Seminaren auch die Herausgabe von Dokumentationen
           und Veröffentlichungen der Bilder und Texte.
         </div>
-        <div className="flex flex-col mb-8">
+        <div className="flex flex-col mb-8 lg:grid lg:grid-cols-2 lg:gap-11">
           <div className="pr-0">
             <div className="mb-2 text-xl font-bold">Vorstand</div>
             <div className="mb-4">
@@ -45,7 +45,7 @@ const Page: FC = () => (
               Holetschek, Günter Schwanghart
             </div>
           </div>
-          <img src="https://i.imgur.com/s95Y7g1.jpg" className="w-80" />
+          <img src="https://i.imgur.com/s95Y7g1.jpg" className="w-full" />
         </div>
         <div className="mb-2 text-xl font-bold">Mitglied werden</div>
         <div className="mb-8">
@@ -83,7 +83,7 @@ const Page: FC = () => (
           Gemeinsam wird die Erich-Schickling-Stiftung zu einem Ort von Kunst,
           Musik, Natur und Begegnung.
         </div>
-        <div className="grid grid-cols-1 gap-5 my-5 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 my-5 lg:grid-cols-2 lg:gap-11">
           <FeatureBox
             imageUrl="https://i.imgur.com/MUk0BBh.png"
             title="Pflanzen und Bäume"
