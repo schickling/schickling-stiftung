@@ -83,7 +83,7 @@ const Page: FC = () => (
           Gemeinsam wird die Erich-Schickling-Stiftung zu einem Ort von Kunst,
           Musik, Natur und Begegnung.
         </div>
-        <div className="grid grid-cols-1 gap-4 my-5 lg:grid-cols-2 lg:gap-11">
+        <div className="grid grid-cols-1 gap-6 my-5 lg:grid-cols-2 lg:gap-11">
           <FeatureBox
             imageUrl="https://i.imgur.com/MUk0BBh.png"
             title="Pflanzen und Bäume"
