@@ -119,7 +119,7 @@ export const EventBox: FC<{
           </Link>
         </div>
         <div className="font-normal text-gray-900">{description}</div>
-        <div className="font-bold mt-6 mb-1.5">{place}</div>
+        <div className="font-bold mt-6 mb-1.5 text-gray-600">{place}</div>
         <div className="flex justify-between mt-1.5">
           <div className="font-bold text-gray-900">{date}</div>
           <div className="hidden font-bold text-gray-900 lg:block">
