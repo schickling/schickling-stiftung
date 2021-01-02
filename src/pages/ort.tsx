@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { Layout, Container } from '../components/Layout'
-import { Spacer } from './veranstaltungen/[year]'
+import { EventBox, Spacer } from './veranstaltungen/[year]'
 
 const Page: FC = () => (
   <Layout title="Ort">
@@ -15,8 +15,11 @@ const Page: FC = () => (
           Musiker erproben hier gerne ihre Programme vor einem wohlgesonnenen
           Publikum.
         </div>
-        <img src="https://i.imgur.com/LVE0DiA.png" className="w-full mb-10" />
-        <div className="grid gap-11 cols-1 lg:grid-cols-2 lg:gap-6">
+        <img
+          src="https://i.imgur.com/LVE0DiA.png"
+          className="w-full mb-10 rounded"
+        />
+        <div className="grid gap-4 cols-1 lg:grid-cols-2 lg:gap-6">
           <Sight
             number="1"
             title="Kapelle mit Glockenturm"
@@ -29,9 +32,6 @@ const Page: FC = () => (
             description="Am Eingang der Stiftung begrüßt der heilige Franz von Assisi."
             imageUrl="https://i.imgur.com/Fj0n0ud.png"
           />
-        </div>
-        <Spacer className="hidden lg:block" />
-        <div className="grid gap-11 cols-1 lg:grid-cols-2 lg:gap-6">
           <Sight
             number="3"
             title="Innenhof mit Pfauen"
@@ -42,11 +42,8 @@ const Page: FC = () => (
             number="4"
             title="Günzbrücke"
             description="Die Günz ist die Lebensader der Stiftung."
-            imageUrl="blob:https://imgur.com/65000673-2f67-43cf-84a5-c9f4587b20ef"
+            imageUrl="https://i.imgur.com/9bhikO8.png"
           />
-        </div>
-        <Spacer className="hidden lg:block" />
-        <div className="grid gap-11 cols-1 lg:grid-cols-2 lg:gap-6">
           <Sight
             number="5"
             title="Wolkenschiff"
@@ -60,7 +57,21 @@ const Page: FC = () => (
             imageUrl="https://i.imgur.com/EWieqfM.png"
           />
         </div>
-        <Spacer className="hidden lg:block" />
+        <div>Führung durch die Stiftung</div>
+        <EventBox
+          event={{
+            title: 'Einblicke in das Schaffen und Werk des Künstlers',
+            date: 'Sonntag, 03.01.2021 um 15:00 - 16:00 Uhr',
+            description:
+              'Im Weiler Eggisried bei Ottobeuren hat der Künstler Erich Schickling (1924-2012) in über 60-jähriger Arbeit zusammen mit seiner Frau Inge eine Begegnungsstätte für Kunst und Religion geschaffen.',
+            imageUrl: 'https://i.imgur.com/tpMrNgz.png',
+            layout: 'event',
+            place: 'In der Erich Schickling Stiftung',
+            tag: 'Wöchentliche Führung',
+            year: 2021,
+          }}
+          path="/veranstaltungen/fuehrung"
+        />
       </Container>
     </div>
   </Layout>
@@ -74,20 +85,18 @@ const Sight: FC<{
   description: string
   imageUrl: string
 }> = ({ number, title, description, imageUrl }) => (
-  <div className="grid grid-cols-1 gap-0 px-6 py-6 pt-6 lg:border lg:rounded lg:grid-cols-2 lg:gap-6 lg:border-gray-300">
-    <div>
-      <div className="flex">
-        <div className="w-6 h-6 rounded-full text-sm leading-none border-gray-900 mr-2.5">
-          <div className="border inline-flex justify-center items-center w-6 h-6 rounded-full text-sm leading-none border-gray-900 mr-2.5">
-            {number}
-          </div>
+  <div className="flex flex-col justify-between border border-gray-300 rounded sm:flex-row">
+    <div className="p-6">
+      <div className="flex items-center mb-1">
+        <div className="border flex justify-center items-center w-6 h-6 rounded-full text-sm leading-none border-gray-900 mr-2.5">
+          {number}
         </div>
-        <div className="mb-1 text-lg font-bold">{title} →</div>
+        <div className="text-lg font-bold">{title} →</div>
       </div>
       <div className="font-normal text-gray-600">{description}</div>
     </div>
-    <div>
-      <img src={imageUrl} className="w-full mt-6 lg:object-cover lg:h-full" />
+    <div className="flex-shrink-0">
+      <img src={imageUrl} className="object-cover w-full sm:w-32 sm:h-auto" />
     </div>
   </div>
 )
