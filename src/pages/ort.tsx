@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Layout, Container } from '../components/Layout'
-import { EventBox, Spacer } from './veranstaltungen/[year]'
+import { EventBox } from './veranstaltungen/[year]'
 
 const Page: FC = () => (
   <Layout title="Ort">
