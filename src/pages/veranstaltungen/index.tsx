@@ -50,7 +50,7 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <div className="font-normal mb-11">
           Fotos, Videos und Text der letzten Veranstaltungen finden Sie hier.
         </div>
-        <div className="grid cols-1 gap-11 lg:grid-cols-3">
+        <div className="grid cols-1 gap-11 lg:grid-cols-3 lg:gap-5">
           <PDFDownload
             imageUrl="https://i.imgur.com/4LtthQc.png/"
             description="Jahresprogramm 2021 als PDF →"
