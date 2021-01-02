@@ -32,6 +32,10 @@ module.exports = {
             path: '/{__metadata.urlPath}',
             predicate: _.matchesProperty('__metadata.modelName', 'post'),
           },
+          {
+            path: '/{__metadata.urlPath}',
+            predicate: _.matchesProperty('__metadata.modelName', 'event'),
+          },
         ],
         commonProps: {
           pages: {

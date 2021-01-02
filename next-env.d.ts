@@ -19,3 +19,11 @@ declare module '@ui-devtools/tailwind' {
   // …
   export const Devtools = React.FC
 }
+
+declare module 'sourcebit-target-next' {
+  export const sourcebitDataClient = any
+}
+
+declare module 'sourcebit-target-next/with-remote-data-updates' {
+  export const withRemoteDataUpdates = any
+}

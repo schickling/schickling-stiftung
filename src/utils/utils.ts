@@ -27,3 +27,17 @@ function replaceUmlaute(str: string): string {
 }
 
 export const unique = <X>(xs: X[]): X[] => Array.from(new Set(xs))
+
+export async function promiseAllObject<
+  Obj extends Record<string, Promise<any>>
+>(
+  obj: Obj,
+): Promise<{ [P in keyof Obj]: Obj[P] extends Promise<infer T> ? T : never }> {
+  const keys = Object.keys(obj)
+  const promises = await Promise.all(Object.values(obj))
+
+  return keys.reduce(
+    (acc, key, index) => ({ ...acc, [key]: promises[index] }),
+    {},
+  ) as any
+}

@@ -2,22 +2,22 @@ import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { FC, Fragment } from 'react'
 import { Layout, Container } from '../../../components/Layout'
-import { Event, events, years } from '../../../data/events'
 import { defineStaticPaths, defineStaticProps } from '../../../utils/next'
-import { escapeAndParamCase } from '../../../utils/utils'
+import { promiseAllObject } from '../../../utils/utils'
+import { Event, getEventsForYear, getYears } from '../../../models/event'
 
 export const getStaticProps = defineStaticProps(async (context) => {
   const currentYear = parseInt(context.params!.year as string)
-  return {
-    props: {
-      events: events.filter((_) => _.year === currentYear),
-      years,
-      currentYear,
-    },
-  }
+  const { events, years } = await promiseAllObject({
+    events: getEventsForYear({ year: currentYear }),
+    years: getYears(),
+  })
+
+  return { props: { events, years, currentYear } }
 })
 
 export const getStaticPaths = defineStaticPaths(async () => {
+  const years = await getYears()
   const paths = years.map((_) => ({ params: { year: `${_}` } }))
 
   return { paths, fallback: false }
@@ -48,10 +48,10 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           Musiker erproben hier gerne ihre Programme vor einem wohlgesonnenen
           Publikum.
         </div>
-        {events.map((event, index) => (
+        {events.map(({ frontmatter: event, __metadata }, index) => (
           <Fragment key={event.title}>
             {index > 0 && <Spacer />}
-            <EventBox event={event} />
+            <EventBox event={event} path={__metadata.urlPath} />
           </Fragment>
         ))}
         <div className="mt-16 mb-1 text-xl font-bold text-gray-900">
@@ -99,9 +99,10 @@ export const Spacer: FC<{ className?: string }> = ({ className }) => (
 
 export const EventBox: FC<{
   event: Event
-}> = ({ event }) => {
-  const { imageUrl, tag, title, description, place, date, year } = event
-  const path = `/veranstaltungen/${year}/${escapeAndParamCase(title)}`
+  path: string
+}> = ({ event, path }) => {
+  const { imageUrl, tag, title, description, place, date } = event
+  // const path = `/veranstaltungen/${year}/${escapeAndParamCase(title)}`
   return (
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-35-65 lg:gap-11">
       {/* NOTE Wrapping div is needed otherwise h-full will be 100vh in Safari */}

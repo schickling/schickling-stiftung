@@ -1,17 +1,18 @@
 import { InferGetStaticPropsType } from 'next'
 import React, { FC, Fragment } from 'react'
 import { Layout, Container } from '../../components/Layout'
-import { events, years } from '../../data/events'
+import { getEventsForYear, getYears } from '../../models/event'
 import { defineStaticProps } from '../../utils/next'
+import { promiseAllObject } from '../../utils/utils'
 import { EventBox, PDFDownload, Spacer } from './[year]'
 
 export const getStaticProps = defineStaticProps(async () => {
-  return {
-    props: {
-      events: events.filter((_) => _.year === 2020),
-      years,
-    },
-  }
+  const { years, events } = await promiseAllObject({
+    years: getYears(),
+    events: getEventsForYear({ year: new Date().getFullYear() }),
+  })
+
+  return { props: { events, years } }
 })
 
 const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
@@ -38,10 +39,10 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           Musiker erproben hier gerne ihre Programme vor einem wohlgesonnenen
           Publikum.
         </div>
-        {events.map((event, index) => (
+        {events.map(({ frontmatter: event, __metadata }, index) => (
           <Fragment key={event.title}>
             {index > 0 && <Spacer />}
-            <EventBox event={event} />
+            <EventBox event={event} path={__metadata.urlPath} />
           </Fragment>
         ))}
         <div className="mt-16 mb-1 text-xl font-bold text-gray-900">

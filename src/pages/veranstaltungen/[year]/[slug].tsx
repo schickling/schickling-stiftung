@@ -1,99 +1,99 @@
 import { InferGetStaticPropsType } from 'next'
 import React, { FC } from 'react'
+import Markdown from 'react-markdown'
 import { Spacer } from '.'
 import { Icons } from '../../../components/icons'
 import { Layout, Container } from '../../../components/Layout'
-import { events, years } from '../../../data/events'
 import { defineStaticPaths, defineStaticProps } from '../../../utils/next'
-import { escapeAndParamCase } from '../../../utils/utils'
+import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates'
+import {
+  getDetailsPaths,
+  getDetailsProps,
+  getYears,
+} from '../../../models/event'
+import { promiseAllObject } from '../../../utils/utils'
 
 export const getStaticProps = defineStaticProps(async (context) => {
-  const currentYear = parseInt(context.params!.year as string)
-  const event = events.find(
-    (_) =>
-      context.params!.slug === escapeAndParamCase(_.title) &&
-      _.year === currentYear,
-  )!
-  return {
-    props: {
-      event,
-      years,
-    },
-  }
+  const { years, props } = await promiseAllObject({
+    years: getYears(),
+    props: getDetailsProps({
+      currentYear: parseInt(context.params!.year as string),
+      slug: context.params!.slug as string,
+    }),
+  })
+
+  return { props: { years, ...props.page, ...props } }
 })
 
 export const getStaticPaths = defineStaticPaths(async () => {
-  const paths = events.map((_) => ({
-    params: {
-      year: _.year.toString(),
-      slug: escapeAndParamCase(_.title),
-    },
-  }))
+  const paths = await getDetailsPaths()
 
   return { paths, fallback: false }
 })
 
 const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  event,
   years,
-}) => (
-  <Layout
-    title={event.title}
-    subNavItems={[
-      { path: '/veranstaltungen', title: 'Übersicht', exact: true },
-      ...years.map((_) => ({ path: `/veranstaltungen/${_}`, title: `${_}` })),
-    ]}
-  >
-    <div className="py-10 text-gray-900 bg-white lg:py-24">
-      <Container>
-        <div className="rounded inline-flex px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
-          {event.tag}
-        </div>
-        <div className="mt-5 text-2xl font-bold mb-9">{event.title}</div>
-        <div className="grid grid-cols-1 gap-3.5 lg:grid-cols-2 lg:gap-16">
-          <TimeDate
-            icon={<Icons.ClockOutline />}
-            title="Datum"
-            description={event.date}
+  frontmatter: event,
+  markdown,
+}) => {
+  return (
+    <Layout
+      title={event.title}
+      subNavItems={[
+        { path: '/veranstaltungen', title: 'Übersicht', exact: true },
+        ...years.map((_) => ({ path: `/veranstaltungen/${_}`, title: `${_}` })),
+      ]}
+    >
+      <div className="py-10 text-gray-900 bg-white lg:py-24">
+        <Container>
+          <div className="rounded inline-flex px-2.5 py-1.5 text-gray-600 font-medium text-sm bg-gray-200">
+            {event.tag}
+          </div>
+          <div className="mt-5 text-2xl font-bold mb-9">{event.title}</div>
+          <div className="grid grid-cols-1 gap-3.5 lg:grid-cols-2 lg:gap-16">
+            <TimeDate
+              icon={<Icons.ClockOutline />}
+              title="Datum"
+              description={event.date}
+            />
+            <TimeDate
+              icon={<Icons.LocationMarkerOutline />}
+              title="Ort"
+              description="Konzerthalle in Erich-Schickling-Stiftung"
+            />
+          </div>
+          <Spacer className="hidden lg:block" />
+          <Markdown
+            className="markdown"
+            children={markdown}
+            renderers={{
+              paragraph: ({ children }) => (
+                <div className="mb-10 lg:mb-16">{children}</div>
+              ),
+              image: ({ src, alt }) => (
+                <div>
+                  <img src={src} alt={alt} title={alt} className="w-full" />
+                  {alt !== '' && (
+                    <div className="flex justify-center mt-3 text-base font-normal text-gray-600">
+                      {alt}
+                    </div>
+                  )}
+                </div>
+              ),
+            }}
           />
-          <TimeDate
-            icon={<Icons.LocationMarkerOutline />}
-            title="Ort"
-            description="Konzerthalle in Erich-Schickling-Stiftung"
-          />
-        </div>
-        <Spacer className="hidden lg:block" />
-        <div className="mt-8 mb-10 font-normal lg:mb-16">
-          Der Pianist Andrej Jussow spielt Klaviersonaten aus der frühen,
-          mittleren und späten Schaffenszeit Ludwig van Beethovens, gipfelnd in
-          seiner letzten Klaviersonate C-Moll op. 111 mit der berühmten Arietta
-          und ihren transzendenten Variationen.
-        </div>
-        <img src="https://i.imgur.com/JDtlA2b.png" className="w-full" />
-        <div className="flex justify-center mt-3 text-base font-normal text-gray-600">
-          Andrej Jussow
-        </div>
-        <div className="mt-10 mb-16 lg:mt-16">
-          Andrej Jussow stammt aus der Ukraine und gehört einer ausdrucksstarken
-          jungen Pianistengeneration an, von russischer Tradition geprägt, dem
-          klassischen Repertoire sowohl als Solist wie als Kammermusiker
-          zutiefst verpflichtet. Er konzertiert häufig mit den Klavierkonzerten
-          von Beethoven, Chopin, Brahms, Prokofieff, darunter oft mit dem
-          Orchester der Württembergischen Staatstheater Stuttgart. Als
-          Lehrbeauftragter für Kammermusik an der HfM arbeitet er begeistert mit
-          jungen wie arrivierten Musikern zusammen.
-        </div>
-        <div className="grid grid-cols-1 gap-3 gap-5 lg:grid-cols-3">
-          <img src="https://i.imgur.com/8EWvPH8.png" />
-          <img src="https://i.imgur.com/Ds5yyxb.png" className="w-full" />
-          <img src="https://i.imgur.com/hBBZs9N.png" className="w-full" />
-        </div>
-      </Container>
-    </div>
-  </Layout>
-)
+          <div className="grid grid-cols-1 gap-3 lg:gap-5 lg:grid-cols-3">
+            <img src="https://i.imgur.com/8EWvPH8.png" />
+            <img src="https://i.imgur.com/Ds5yyxb.png" className="w-full" />
+            <img src="https://i.imgur.com/hBBZs9N.png" className="w-full" />
+          </div>
+        </Container>
+      </div>
+    </Layout>
+  )
+}
 
-export default Page
+export default withRemoteDataUpdates(Page)
 
 const TimeDate: FC<{
   icon: JSX.Element
