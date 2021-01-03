@@ -8,7 +8,7 @@ export type SourcebitProps<FM extends Frontmatter> = {
   liveUpdatePort: number
 }
 
-type Frontmatter = { layout: string } & Record<string, any>
+export type Frontmatter = { layout: string } & Record<string, any>
 
 export type Page<FM extends Frontmatter = Frontmatter> = {
   frontmatter: FM

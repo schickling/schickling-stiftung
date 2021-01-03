@@ -10,7 +10,7 @@ export type Event = {
   place: string
   date: string
   year: number
-  layout: string
+  layout: 'event'
 }
 
 export const getYears = async (): Promise<number[]> => {
