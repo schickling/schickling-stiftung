@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
+import { ContactBox } from '../components/ContactBox'
 import { Layout, Container } from '../components/Layout'
-import { EventBox } from './veranstaltungen/[year]'
+import { EventBox, Spacer } from './veranstaltungen/[year]'
 
 const Page: FC = () => (
   <Layout title="Ort">
@@ -74,29 +75,21 @@ const Page: FC = () => (
           }}
           path="/veranstaltungen/fuehrung"
         />
-        {/*<Spacer className="hidden lg:block" /> Spacer funktioniert noch nicht*/}
+        <Spacer className="hidden lg:block" />
         <div className="mt-16 mb-1 text-2xl font-bold">
           Öffnungszeiten des Stiftungsgeländes
         </div>
         <div className="font-normal text-gray-600">
           Montag - Sonntag, 10:00 Uhr - 18:00 Uhr oder auf Anfrage.
         </div>
-        <div className="mt-10 border border-gray-300 rounded border-DEFAULT py-9 px-9">
-          <div className="mb-1 text-xl font-bold">Kontakt </div>
-          <div className="text-gray-600">
-            Das Gelände der Stiftung mit Kapelle ist für Besuch jederzeit
-            zugänglich. Die Ausstellungsgebäuden sind im Rahmen der Führungen
-            oder auf Anfrage kostenfrei zugänglich.
-          </div>
-          <div className="inline-flex mt-12">
-            <div className="p-3 text-white bg-black rounded mr-9">
-              Per Email anfragen
-            </div>
-            <div className="inline-flex items-center justify-center font-bold text-gray-600">
-              Telefon: 08332 / 936362
-            </div>
-          </div>
-        </div>
+        <ContactBox
+          title="Kontakt"
+          description="Das Gelände der Stiftung mit Kapelle ist für Besuch jederzeit
+        zugänglich. Die Ausstellungsgebäuden sind im Rahmen der Führungen
+        oder auf Anfrage kostenfrei zugänglich."
+          button="Per Email anfragen"
+          number="Telefon: 08332 / 936362"
+        />
       </Container>
     </div>
   </Layout>
