@@ -32,6 +32,7 @@ module.exports = {
 
     // Uncomment the following to debug
     // console.dir(config, { depth: null })
+
     return config
   },
 }

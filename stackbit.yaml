@@ -371,12 +371,25 @@ models:
         default: false
         description: Tell search engines not to index this page
 
+  artwork:
+    type: page
+    urlPath: '/werke/{category}/{slug}'
+    label: Event
+    layout: artwork
+    folder: werke
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the post
+        required: true
+
   event:
     type: page
     urlPath: '/veranstaltungen/{year}/{slug}'
     label: Event
     layout: event
-    folder: events
+    folder: veranstaltungen
     fields:
       - type: string
         name: title

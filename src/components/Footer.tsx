@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { categories } from '../data/artworks'
 import { Icons } from './icons'
+
+const categories = [
+  { title: 'Bilder', slug: 'bilder' },
+  { title: 'Kirchen', slug: 'kirchen' },
+]
 
 export const Footer: FC<{}> = ({}) => {
   return (
