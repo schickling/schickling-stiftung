@@ -1,10 +1,8 @@
 import React, { FC } from 'react'
-import { ContactBox } from '../components/ContactBox'
-import { Layout, Container } from '../components/Layout'
-import { EventBox, Spacer } from './veranstaltungen/[year]'
+import { Container, Layout } from '../components/Layout'
 
 const Page: FC = () => (
-  <Layout title="Kontak">
+  <Layout title="Kontakt">
     <div className="py-24 text-gray-900 bg-white">
       <Container>
         <div>Anfahrt und Kontakt</div>
@@ -12,3 +10,5 @@ const Page: FC = () => (
     </div>
   </Layout>
 )
+
+export default Page
