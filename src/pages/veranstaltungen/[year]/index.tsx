@@ -6,7 +6,6 @@ import { defineStaticPaths, defineStaticProps } from '../../../utils/next'
 import { promiseAllObject } from '../../../utils/utils'
 import { Event, getEventsForYear, getYears } from '../../../models/event'
 import { H1 } from '../../../components/H1'
-import { H2 } from '../../../components/H2'
 import { EventFlyer } from '../../../components/EventFlyer'
 
 export const getStaticProps = defineStaticProps(async (context) => {
