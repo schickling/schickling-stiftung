@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
+import { ContactBox } from '../components/ContactBox'
 import { Layout, Container } from '../components/Layout'
-import { EventBox } from './veranstaltungen/[year]'
+import { EventBox, Spacer } from './veranstaltungen/[year]'
 
 const Page: FC = () => (
   <Layout title="Ort">
@@ -57,7 +58,9 @@ const Page: FC = () => (
             imageUrl="https://i.imgur.com/EWieqfM.png"
           />
         </div>
-        <div>Führung durch die Stiftung</div>
+        <div className="py-12 pt-12 pb-5 text-2xl font-bold">
+          Führung durch die Stiftung
+        </div>
         <EventBox
           event={{
             title: 'Einblicke in das Schaffen und Werk des Künstlers',
@@ -71,6 +74,21 @@ const Page: FC = () => (
             year: 2021,
           }}
           path="/veranstaltungen/fuehrung"
+        />
+        <Spacer className="hidden lg:block" />
+        <div className="mt-16 mb-1 text-2xl font-bold">
+          Öffnungszeiten des Stiftungsgeländes
+        </div>
+        <div className="text-gray-600 font-normal mb-10">
+          Montag - Sonntag, 10:00 Uhr - 18:00 Uhr oder auf Anfrage.
+        </div>
+        <ContactBox
+          title="Kontakt"
+          description="Das Gelände der Stiftung mit Kapelle ist für Besuch jederzeit
+        zugänglich. Die Ausstellungsgebäuden sind im Rahmen der Führungen
+        oder auf Anfrage kostenfrei zugänglich."
+          button="Per Email anfragen"
+          number="Telefon: 08332 / 936362"
         />
       </Container>
     </div>
