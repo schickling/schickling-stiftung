@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { ContactBox } from '../components/ContactBox'
 import { Layout, Container } from '../components/Layout'
+import { Spacer } from './veranstaltungen/[year]'
 
 const Page: FC = () => (
   <Layout title="Unterstützen">
@@ -64,9 +65,9 @@ const Page: FC = () => (
           button="Per Email anfragen"
           number="Telefon: 08332 / 936362"
         />
-
-        <div className="w-full h-px my-5 bg-gray-200" />
-        <div className="mt-5 text-2xl font-bold">
+        <Spacer className="hidden lg:block" />
+        {/* Spacer fehlt mobile*/}
+        <div className="mt-16 text-2xl font-bold">
           Jede Unterstützung ist willkommen!
         </div>
         <div className="mt-5">

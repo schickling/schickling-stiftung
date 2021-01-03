@@ -7,7 +7,7 @@ export const ContactBox: FC<{
   button: string
   number: string
 }> = ({ title, description, button, number }) => (
-  <div className="border border-gray-300 rounded p-9">
+  <div className="border rounded p-9 border-gray-300 mb-16">
     <div>
       <div className="mb-4 text-2xl font-bold">{title}</div>
       <div className="font-normal text-gray-600 mb-9">{description}</div>
