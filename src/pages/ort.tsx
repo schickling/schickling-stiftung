@@ -79,7 +79,7 @@ const Page: FC = () => (
         <div className="mt-16 mb-1 text-2xl font-bold">
           Öffnungszeiten des Stiftungsgeländes
         </div>
-        <div className="font-normal text-gray-600">
+        <div className="text-gray-600 font-normal mb-10">
           Montag - Sonntag, 10:00 Uhr - 18:00 Uhr oder auf Anfrage.
         </div>
         <ContactBox

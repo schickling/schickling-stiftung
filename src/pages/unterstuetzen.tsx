@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { ContactBox } from '../components/ContactBox'
 import { Layout, Container } from '../components/Layout'
 
 const Page: FC = () => (
@@ -56,25 +57,14 @@ const Page: FC = () => (
           Förderbeitrag steht in Ihrem Ermessen. Gerne schicken wir Ihnen unser
           Beitrittsformular zu.
         </div>
-        <div className="border border-gray-300 rounded pt-9 pr-9 py-9 px-9">
-          <div>
-            <div className="mb-4 text-2xl font-bold">
-              Anfrage Beitrittsformular
-            </div>
-            <div className="font-normal text-gray-600 mb-9">
-              Sehr gerne sende wir Ihnen ein Beitrittsformular per Email oder
-              postalisch zu.
-            </div>
-            <div className="flex flex-col items-start md:flex-row md:items-center">
-              <div className="px-5 py-3 mb-4 mr-0 text-lg font-medium text-white bg-black rounded md:mb-0 md:mr-5">
-                Per Email anfragen
-              </div>
-              <div className="font-bold text-gray-600">
-                Telefon: 08332 / 936362
-              </div>
-            </div>
-          </div>
-        </div>
+        <ContactBox
+          title="Anfrage Beitrittsformular"
+          description=" Sehr gerne sende wir Ihnen ein Beitrittsformular per Email oder
+        postalisch zu."
+          button="Per Email anfragen"
+          number="Telefon: 08332 / 936362"
+        />
+
         <div className="w-full h-px my-5 bg-gray-200" />
         <div className="mt-5 text-2xl font-bold">
           Jede Unterstützung ist willkommen!
