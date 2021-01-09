@@ -12,6 +12,7 @@ import {
   getYears,
 } from '../../../models/event'
 import { promiseAllObject } from '../../../utils/utils'
+import { FeatureBox } from '../../../components/FeatureBox'
 
 export const getStaticProps = defineStaticProps(async (context) => {
   const { years, props } = await promiseAllObject({
@@ -50,18 +51,18 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             {event.tag}
           </div>
           <div className="mt-5 text-2xl font-bold mb-9">{event.title}</div>
-          <div className="grid grid-cols-1 gap-3.5 lg:grid-cols-2 lg:gap-16">
-            <TimeDate
+          <FeatureBox.Grid>
+            <FeatureBox.Item
               icon={<Icons.ClockOutline />}
               title="Datum"
               description={event.date}
             />
-            <TimeDate
+            <FeatureBox.Item
               icon={<Icons.LocationMarkerOutline />}
               title="Ort"
               description="Konzerthalle in Erich-Schickling-Stiftung"
             />
-          </div>
+          </FeatureBox.Grid>
           <Spacer fullWidthOnMobile />
           <Markdown
             className="markdown"
@@ -94,17 +95,3 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }
 
 export default withRemoteDataUpdates(Page)
-
-const TimeDate: FC<{
-  icon: JSX.Element
-  title: string
-  description: string
-}> = ({ icon, title, description }) => (
-  <div className="flex">
-    <div className="text-gray-600">{icon}</div>
-    <div className="ml-5">
-      <div className="mb-1 text-sm font-bold text-gray-600">{title}</div>
-      <div className="text-sm text-gray-600">{description}</div>
-    </div>
-  </div>
-)

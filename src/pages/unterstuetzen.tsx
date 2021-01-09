@@ -5,6 +5,7 @@ import { Layout, Container } from '../components/Layout'
 import { H2 } from '../components/H2'
 import { Spacer } from './veranstaltungen/[year]'
 import { H1 } from '../components/H1'
+import { FeatureBox } from '../components/FeatureBox'
 
 const Page: FC = () => (
   <Layout title="Unterstützen">
@@ -12,7 +13,7 @@ const Page: FC = () => (
       <Container className="flex flex-col space-y-10">
         <H1
           title="Unterstützen"
-          subtext="Von und durch viele helfende, musizierende, denkende und gebende Hände und Köpfe lebt die Erich-Schickling-Stiftung. Um die Stiftung zu erhalten freuen wir uns über Unterstützung in allen möglichen Formen."
+          subtext="Von und durch viele helfende, musizierende, denkende und gebende Hände und Köpfe lebt die Erich-Schickling-Stiftung. Um die Stiftung zu erhalten, freuen wir uns über Unterstützung in allen möglichen Formen."
         />
         <div className="flex flex-col space-y-16">
           <div>
@@ -25,7 +26,7 @@ const Page: FC = () => (
               weiterhin zugänglich zu machen, haben sich namhafte
               Persönlichkeiten aus Kunst, Kultur und Politik 1998 zum
               "Förderkreis der Erich-Schickling-Stiftung e.V."
-              zusammengeschlossen.{' '}
+              zusammengeschlossen.
             </div>
             <div className="mb-2 text-xl font-bold">
               Was ist der Förderkreis?
@@ -78,29 +79,29 @@ const Page: FC = () => (
               title="Jede Unterstützung ist willkommen!"
               subtext="Gemeinsam wird die Erich-Schickling-Stiftung zu einem Ort von Kunst, Musik, Natur und Begegnung."
             />
-            <div className="grid grid-cols-1 gap-6 my-5 lg:grid-cols-2 lg:gap-10">
-              <FeatureBox
+            <FeatureBox.Grid>
+              <FeatureBox.Item
                 icon={<Icons.SunOutline />}
                 title="Pflanzen und Bäume"
                 description="Das Gelände der Erich-Schickling-Stiftung ist Heimat von
                   zahlreichen Pflanzen, Blumen und Bäumen."
               />
-              <FeatureBox
+              <FeatureBox.Item
                 icon={<Icons.MusicNoteOutline />}
                 title="Musik schenken"
                 description="Im Rahmen der Veranstaltung in der Erich-Schickling-Stiftung freuen wir uns über Beiträge und Anregungen."
               />
-              <FeatureBox
+              <FeatureBox.Item
                 icon={<Icons.CashOutline />}
                 title="Für die Stiftung spenden"
                 description=" Unterstützen Sie die Stiftung mit einer monetären Spende und tragen Sie somit zum Erhalt der Stiftungsgebäude und den öffentlichen Angeboten bei."
               />
-              <FeatureBox
+              <FeatureBox.Item
                 icon={<Icons.ChatOutline />}
                 title="Weitererzählen"
                 description="Begeisterung steckt an! Laden Sie gerne auch Familie und Freundeskreis in die Erich-Schicklung-Stiftung ein."
               />
-            </div>
+            </FeatureBox.Grid>
           </div>
         </div>
       </Container>
@@ -110,16 +111,16 @@ const Page: FC = () => (
 
 export default Page
 
-const FeatureBox: FC<{
-  icon: JSX.Element
-  title: string
-  description: string
-}> = ({ icon, title, description }) => (
-  <div className="flex space-x-5">
-    <div className="w-11 h-11">{icon}</div>
-    <div className="flex flex-col space-y-1">
-      <div className="font-bold text-gray-600">{title}</div>
-      <div className="font-normal text-gray-600">{description}</div>
-    </div>
-  </div>
-)
+// const FeatureBox: FC<{
+//   icon: JSX.Element
+//   title: string
+//   description: string
+// }> = ({ icon, title, description }) => (
+//   <div className="flex space-x-5">
+//     <div className="w-11 h-11">{icon}</div>
+//     <div className="flex flex-col space-y-1">
+//       <div className="font-bold text-gray-600">{title}</div>
+//       <div className="font-normal text-gray-600">{description}</div>
+//     </div>
+//   </div>
+// )
