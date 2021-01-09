@@ -13,7 +13,7 @@ const Item: FC<{
 }> = ({ icon, title, description }) => (
   <div className="flex space-x-5 text-gray-600">
     <div className="">{icon}</div>
-    <div className="flex flex-col space-y-1">
+    <div className="flex flex-col space-y-1 text-sm lg:text-base">
       <div className="font-bold">{title}</div>
       <div className="font-normal">{description}</div>
     </div>
