@@ -4,7 +4,7 @@ import { Icons } from './icons'
 
 const navItems = d([
   { path: '/', title: 'Startseite' },
-  { path: '/ort', title: 'Ort' },
+  { path: '/stiftung', title: 'Stiftung' },
   { path: '/werke', title: 'Werke' },
   { path: '/erich-schickling', title: 'Erich Schickling' },
   { path: '/veranstaltungen', title: 'Veranstaltungen' },
