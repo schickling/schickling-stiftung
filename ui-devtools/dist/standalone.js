@@ -951,7 +951,8 @@ var mergeShorthands = function mergeShorthands(wipProperties) {
 
 var flushClassList = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(_ref2) {
-    var state, element, firstSource, source, classList, API_URL, response, data, notificationEl, location;
+    var state, element, firstSource, source, classList, _source$split, _source$split2, filename, start, end, API_URL, response, data, notificationEl, location;
+
     return _regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -981,10 +982,22 @@ var flushClassList = /*#__PURE__*/function () {
             return _context.abrupt("return");
 
           case 7:
-            source = JSON.parse(element.dataset[firstSource]);
-            classList = element.classList.value;
+            source = element.dataset[firstSource];
+            classList = element.classList.value; // If using filename:start:end syntax (better for Vue and SSR)
+
+            if (source.startsWith('/')) {
+              _source$split = source.split(':'), _source$split2 = _slicedToArray(_source$split, 3), filename = _source$split2[0], start = _source$split2[1], end = _source$split2[2];
+              source = {
+                filename: filename,
+                start: start,
+                end: end
+              };
+            } else {
+              source = JSON.parse(source);
+            }
+
             API_URL = window.UI_DEVTOOLS_API || 'http://localhost:2406';
-            _context.next = 12;
+            _context.next = 13;
             return fetch(API_URL, {
               method: 'POST',
               headers: {
@@ -999,12 +1012,12 @@ var flushClassList = /*#__PURE__*/function () {
               })
             });
 
-          case 12:
+          case 13:
             response = _context.sent;
-            _context.next = 15;
+            _context.next = 16;
             return response.json();
 
-          case 15:
+          case 16:
             data = _context.sent;
 
             if (data.error || data.nochange) {
@@ -1017,7 +1030,7 @@ var flushClassList = /*#__PURE__*/function () {
               }, 7500);
             }
 
-          case 17:
+          case 18:
           case "end":
             return _context.stop();
         }
@@ -5746,8 +5759,16 @@ var Accessibility = function Accessibility() {
 };
 
 var inWrapper = function inWrapper(element) {
+  var ids = ['devtool-wrapper'];
   var main = document.querySelector('#devtool-wrapper');
-  if (main.contains(element) && element.id !== 'devtool-wrapper') return true;
+
+  if (window.UI_DEVTOOLS_FRAMEWORK === 'nuxt') {
+    // Avoid selecting Nuxt and Layout divs
+    main = document.querySelector('#__layout') || document.querySelector('#__nuxt') || main;
+    ids.push('__nuxt', '__layout');
+  }
+
+  if (main.contains(element) && ids.includes(element.id) === false) return true;
 };
 
 var SelectedElement = function SelectedElement() {
@@ -5841,7 +5862,7 @@ var SelectedElement = function SelectedElement() {
           }
         });
       }
-    }, element.tagName), index < elementStack.length - 1 && /*#__PURE__*/React.createElement(reactUi.Text, {
+    }, element.tagName.toLowerCase(), element.id ? "#".concat(element.id) : ''), index < elementStack.length - 1 && /*#__PURE__*/React.createElement(reactUi.Text, {
       css: {
         color: 'grays.400'
       }
@@ -5922,6 +5943,10 @@ var hasSourceData = function hasSourceData() {
   var wrapper = document.querySelector('#devtool-wrapper');
 
   if (wrapper && wrapper.children) {
+    if (window.UI_DEVTOOLS_FRAMEWORK === 'nuxt') {
+      return true;
+    }
+
     return Array.from(wrapper.children).find(function (child) {
       var dataset = child.dataset;
       var keys = Object.keys(dataset);
@@ -5933,7 +5958,7 @@ var hasSourceData = function hasSourceData() {
   }
 };
 
-var version = "0.5.7";
+var version = "0.5.8";
 
 var Feedback = function Feedback(props) {
   return /*#__PURE__*/React.createElement(reactUi.Button, _extends({
@@ -6419,14 +6444,20 @@ var Switcher = function Switcher(props) {
     css: {
       position: 'fixed',
       zIndex: 998,
-      top: 4,
-      right: 4,
+      top: 3,
+      right: 3,
       cursor: 'pointer',
+      backgroundColor: '#fff',
+      padding: '9px 7px 7px 9px',
+      borderRadius: '5px',
+      border: '2px solid #eee',
       color: '#6E7A8A',
+      transition: 'border-color 250ms ease',
       path: {
         transition: 'all 250ms ease'
       },
       ':hover': {
+        borderColor: '#ddd',
         color: '#111',
         '#rect': {
           color: '#3793E0'

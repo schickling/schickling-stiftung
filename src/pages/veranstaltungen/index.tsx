@@ -48,10 +48,9 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             </Fragment>
           ))}
         </div>
-        <Spacer />
+        <Spacer fullWidthOnMobile />
         <EventFlyer />
-        <Spacer className="hidden lg:block" />
-        {/* TODO large spacer for mobile */}
+        <Spacer fullWidthOnMobile />
         <Newsletter />
       </Container>
     </div>

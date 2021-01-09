@@ -112,7 +112,7 @@ I'm constantly shipping upgrades, if you want to jump to a [specific release](ht
 &nbsp;
 
 ```
-yarn add ui-devtools/tailwind#0.5.6
+yarn add ui-devtools/tailwind#0.5.8
 ```
 
 &nbsp;

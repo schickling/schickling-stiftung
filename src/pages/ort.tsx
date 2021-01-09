@@ -82,7 +82,7 @@ const Page: FC = () => (
             path="/veranstaltungen/fuehrung"
           />
         </div>
-        <Spacer className="hidden lg:block" />
+        <Spacer fullWidthOnMobile />
         <div className="flex flex-col space-y-11">
           <H2
             title="Öffnungszeiten des Stiftungsgeländes"

@@ -62,7 +62,7 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               description="Konzerthalle in Erich-Schickling-Stiftung"
             />
           </div>
-          <Spacer className="hidden lg:block" />
+          <Spacer fullWidthOnMobile />
           <Markdown
             className="markdown"
             children={markdown}

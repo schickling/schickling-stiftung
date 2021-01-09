@@ -33,8 +33,8 @@ export const Container: FC<{ className?: string }> = ({
   className,
 }) => (
   <div
-    className={`container mx-auto ${className ?? ''}`}
-    style={{ maxWidth: 1048, paddingLeft: 24, paddingRight: 24 }}
+    className={`container mx-auto px-6 ${className ?? ''}`}
+    style={{ maxWidth: 1048 }}
   >
     {children}
   </div>

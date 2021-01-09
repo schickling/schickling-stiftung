@@ -72,8 +72,7 @@ const Page: FC = () => (
               number="Telefon: 08332 / 936362"
             />
           </div>
-          <Spacer className="hidden lg:block" />
-          {/* Spacer fehlt mobile*/}
+          <Spacer fullWidthOnMobile />
           <div className="flex flex-col space-y-11">
             <H2
               title="Jede Unterstützung ist willkommen!"

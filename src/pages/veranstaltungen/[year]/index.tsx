@@ -65,8 +65,15 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
 export default Page
 
-export const Spacer: FC<{ className?: string }> = ({ className }) => (
-  <div className={`w-full h-px bg-gray-200 my-9 ${className ?? ''}`} />
+export const Spacer: FC<{
+  className?: string
+  fullWidthOnMobile?: boolean
+}> = ({ className, fullWidthOnMobile = false }) => (
+  <div
+    className={`h-px bg-gray-200 my-9 ${
+      fullWidthOnMobile ? 'w-screen -mx-6 lg:mx-0 lg:w-full' : 'w-full'
+    } ${className ?? ''}`}
+  />
 )
 
 export const EventBox: FC<{
