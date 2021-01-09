@@ -41,7 +41,7 @@ const Page: FC = () => (
           <div>
             <img
               src="https://i.imgur.com/J8zqK4O.jpg"
-              className="w-full rounded"
+              className="w-full border border-gray-300 rounded"
             />
           </div>
 
