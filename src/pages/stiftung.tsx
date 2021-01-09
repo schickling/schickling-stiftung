@@ -28,14 +28,14 @@ const Page: FC = () => (
             <FeatureBox.Item
               icon={<Icons.QrcodeOutline />}
               title="QR Codes"
-              description="Vorort findest du an den Standorten 1-10 QR Codes, die sich ganz einfach mit deinem Smartphone scannen lassen. So erfährst du noch mehr über die Kunstwerke der Stiftung."
+              description="Vorort findest du an den Standorten 1-10 QR Codes, die sich ganz einfach mit deinem Smartphone scannen um mehr zu erfahren."
             />
             <FeatureBox.Item
               icon={<Icons.LocationMarkerOutline />}
               title="Ort"
-              description="Erich-Schickling Stiftung
+              description={`Erich-Schickling Stiftung
               Eggisried 29 1/2
-              87724 Ottobeuren"
+              87724 Ottobeuren`}
             />
           </FeatureBox.Grid>
           <div>

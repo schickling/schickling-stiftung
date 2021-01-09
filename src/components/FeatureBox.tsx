@@ -15,7 +15,7 @@ const Item: FC<{
     <div className="">{icon}</div>
     <div className="flex flex-col space-y-1 text-sm lg:text-base">
       <div className="font-bold">{title}</div>
-      <div className="font-normal">{description}</div>
+      <div className="font-normal whitespace-pre-line">{description}</div>
     </div>
   </div>
 )
